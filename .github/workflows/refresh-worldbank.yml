@@ -1,0 +1,47 @@
+# Refreshes public/data/countries.json from the World Bank API.
+# Runs weekly on main, on demand, and whenever the fetch script or this file changes.
+# It commits only when the data changed, so a rerun with no upstream change does nothing.
+name: Refresh World Bank data
+
+on:
+  schedule:
+    - cron: '23 7 * * 1' # Mondays 07:23 UTC
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/fetch-worldbank.mjs
+      - .github/workflows/refresh-worldbank.yml
+
+permissions:
+  contents: write # needed to commit the refreshed JSON
+
+concurrency:
+  group: refresh-worldbank-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Unit test the transform
+        run: node --test tests/worldbank.test.mjs
+      - name: Fetch World Bank data
+        run: node scripts/fetch-worldbank.mjs
+      - name: Validate all data
+        run: node scripts/validate-data.mjs
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- public/data/countries.json && git ls-files --error-unmatch public/data/countries.json >/dev/null 2>&1; then
+            echo "No change in World Bank data; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/countries.json
+          git commit -m "Refresh World Bank data"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

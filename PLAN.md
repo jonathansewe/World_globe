@@ -53,6 +53,8 @@ Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside
 
 ## M1: Skeleton, globe, present-day borders, CORS check
 
+> **Status (2026-11-27): code complete, not done.** Every check that can run without hosting passes (see the boxes below). The checks that need Cloudflare Pages or a real phone browser are still open, because the user can't reach Cloudflare right now. **The user decided on 2026-11-27 to start M2 and M3 in parallel while those checks wait.** This is an explicit exception to "finish one milestone before the next", not a change to M1's checks. M1 stays open until every box is ticked.
+
 **Scope**
 - `index.html` renders a globe with Natural Earth **50m** countries (vendored and simplified).
 - Hover highlights a country. Click opens a side panel showing its name and codes (ISO3, FIPS, Q-id) from `country-index.json`.
@@ -67,13 +69,13 @@ Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside
 - [ ] A pull request gets a working preview URL, and merging to `main` updates production with no manual step.
 - [ ] `curl -I` on a history file shows the long `Cache-Control` set in `_headers`.
 - [ ] The Cloudflare free-plan limits are confirmed in the Cloudflare docs and recorded here (replacing the 📄 tag).
-- [ ] The globe shows every feature of the 50m file. Clicking France shows `FRA`, Norway `NOR`, Kosovo `XKX` (the `-99` trap is handled).
-- [ ] The validator confirms every feature has a non-empty, unique join key. Unmatched features are listed explicitly, not silently dropped.
+- [x] The globe shows every feature of the 50m file. Clicking France shows `FRA`, Norway `NOR`, Kosovo `XKX` (the `-99` trap is handled). *(2026-11-27: `npm run validate` and `npm test` pass.)*
+- [x] The validator confirms every feature has a non-empty, unique join key. Unmatched features are listed explicitly, not silently dropped. *(2026-11-27: `npm run validate` and `npm test` pass.)*
 - [ ] `cors-check.html` results for GDELT, World Bank and Wikidata are recorded in `DATA_SOURCES.md`, and every ⚠️ item there becomes ✅ or ❌.
 - [ ] The GDELT news architecture is decided from that result (direct fetch, JSONP, or build-time headlines) and written into this plan.
 - [ ] Initial page weight is ≤ 1.5 MB gzipped. First globe render takes ≤ 3 s on desktop broadband (Lighthouse, throttling off).
-- [ ] Works at 390 px wide (phone): the panel becomes a bottom sheet and nothing scrolls sideways.
-- [ ] With WebGL disabled, the page shows a readable fallback message instead of a blank page.
+- [x] Works at 390 px wide (phone): the panel becomes a bottom sheet and nothing scrolls sideways. *(2026-11-27: `npm run validate` and `npm test` pass.)*
+- [x] With WebGL disabled, the page shows a readable fallback message instead of a blank page. *(2026-11-27: `npm run validate` and `npm test` pass.)*
 
 ## M2: Country statistics (World Bank)
 

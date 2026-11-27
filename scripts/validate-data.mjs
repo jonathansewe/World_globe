@@ -35,6 +35,27 @@ for (const field of ['iso3', 'fips', 'qid']) {
   console.log(`No ${field} (${missing.length}): ${missing.join('; ') || 'none'}`);
 }
 
+// M2: World Bank statistics. The file only exists once the refresh Action has run.
+const WB_AGGREGATES = 'AFE AFW ARB CEB CSS EAP EAR EAS ECA ECS EMU EUU FCS HIC HPC IBD IBT IDA IDB IDX INX LAC LCN LDC LIC LMC LMY LTE MEA MIC MNA NAC OED OSS PRE PSS PST SAS SSA SSF SST TEA TEC TLA TMN TSA TSS UMC WLD'.split(' ');
+let wb = null;
+try { wb = JSON.parse(await readFile('public/data/countries.json', 'utf8')); } catch { console.log('countries.json not present yet (created by the World Bank refresh Action).'); }
+if (wb) {
+  const keys = Object.keys(wb.countries);
+  const agg = keys.filter((k) => WB_AGGREGATES.includes(k));
+  check(agg.length === 0, `Aggregates in countries.json: ${agg.join(', ')}`);
+  check(keys.length >= 180, `Only ${keys.length} countries in countries.json`);
+  for (const [k, c] of Object.entries(wb.countries)) {
+    for (const [ind, v] of Object.entries(c)) {
+      check(typeof v.value === 'number' && v.value > 0, `${k} ${ind}: value must be a positive number, got ${v.value}`);
+      check(Number.isInteger(v.year) && v.year >= 1960 && v.year <= new Date().getFullYear(), `${k} ${ind}: bad year ${v.year}`);
+    }
+  }
+  check(wb.license === 'CC BY 4.0', 'countries.json must carry the CC BY 4.0 license');
+  // Map features whose code has no World Bank values. Listed, never hidden.
+  const noData = Object.entries(countries).filter(([, c]) => !c.iso3 || !wb.countries[c.iso3]?.pop).map(([k, c]) => `${k} ${c.name}`);
+  console.log(`No World Bank population (${noData.length}): ${noData.join('; ')}`);
+}
+
 const size = (p) => readFile(p).then((b) => gzipSync(b).length);
 const total = (await Promise.all([
   'public/index.html', 'public/src/main.js', 'public/src/style.css',
