@@ -56,10 +56,29 @@ if (wb) {
   console.log(`No World Bank population (${noData.length}): ${noData.join('; ')}`);
 }
 
+// M3: historical border snapshots.
+const hist = JSON.parse(await readFile('public/data/history-index.json', 'utf8'));
+check(hist.years.length === 32 && hist.years[0] === 600 && hist.years.at(-1) === 2010, 'history-index.json must list the 32 snapshots 600..2010');
+let biggest = 0;
+for (const y of hist.years) {
+  const file = `public/${hist.folder}/world_${y}.json`;
+  const buf = await readFile(file);
+  const gz = gzipSync(buf).length;
+  biggest = Math.max(biggest, gz);
+  check(gz <= 400 * 1024, `${file} is ${(gz / 1024).toFixed(0)} KB gzipped (limit 400)`);
+  const g = JSON.parse(buf);
+  const bad = g.features.filter((f) => !f.geometry || !f.geometry.coordinates?.length).length;
+  check(bad === 0, `${file}: ${bad} features without geometry`);
+}
+const sourceMd = await readFile(`public/${hist.folder}/SOURCE.md`, 'utf8');
+check(sourceMd.includes(hist.commit), 'SOURCE.md must name the pinned upstream commit');
+check(hist.folder.includes(hist.commit.slice(0, 7)), 'History folder name must contain the pinned commit (immutable cache)');
+console.log(`History: ${hist.years.length} snapshots, largest ${(biggest / 1024).toFixed(0)} KB gzipped (limit 400).`);
+
 const size = (p) => readFile(p).then((b) => gzipSync(b).length);
 const total = (await Promise.all([
   'public/index.html', 'public/src/main.js', 'public/src/style.css',
-  'public/vendor/globe.gl-2.46.2.min.js', 'public/data/countries-50m.json', 'public/data/country-index.json',
+  'public/vendor/globe.gl-2.46.2.min.js', 'public/data/countries-50m.json', 'public/data/country-index.json', 'public/data/history-index.json',
 ].map(size))).reduce((a, b) => a + b, 0);
 console.log(`Initial page weight: ${(total / 1024 / 1024).toFixed(2)} MB gzipped (limit 1.5)`);
 check(total <= 1.5 * 1024 * 1024, 'Initial page weight over 1.5 MB gzipped');

@@ -85,6 +85,53 @@ footer {
   color: #9fb0c3;
 }
 
+
+#panel-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  margin: 0 0 12px;
+}
+#panel-stats dt { color: #9fb0c3; }
+#panel-stats dd { margin: 0; font-weight: 600; }
+#panel-stats:empty { display: none; }
+
+/* Time slider and colour control, bottom centre. */
+#controls {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  width: min(560px, calc(100% - 24px));
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(12, 20, 32, 0.88);
+}
+#timebar { display: flex; align-items: center; gap: 10px; }
+#timebar input { flex: 1; min-width: 0; accent-color: #ffb45a; }
+#year-label { min-width: 6.5em; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+#snapshot-note { margin: 4px 0 6px; }
+#colorbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+#colorbar select { background: #1a2636; color: inherit; border: 1px solid #34465c; border-radius: 6px; padding: 4px 6px; }
+#legend { flex-basis: 100%; }
+#legend p { margin: 4px 0; }
+.legend-row { display: flex; align-items: center; gap: 8px; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; flex: none; }
+
+dialog#about {
+  max-width: 34em;
+  border: 0;
+  border-radius: 12px;
+  background: #0c1420;
+  color: inherit;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+dialog#about::backdrop { background: rgba(0, 0, 0, 0.6); }
+dialog#about h2 { margin-top: 0; }
+dialog#about button { padding: 6px 14px; }
+
+footer { bottom: auto; top: 10px; }
+
 /* Phone: the panel becomes a bottom sheet. */
 @media (max-width: 600px) {
   #panel {
@@ -95,7 +142,10 @@ footer {
     width: auto;
     max-height: 50vh;
     border-radius: 16px 16px 0 0;
+    z-index: 2;
   }
+  #controls { bottom: 8px; padding: 8px 10px; }
+  #colorbar label { display: none; }
   footer { bottom: auto; top: 10px; }
   #hover-label { top: 40px; }
 }

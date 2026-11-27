@@ -16,8 +16,9 @@
     <button id="panel-close" type="button" aria-label="Close panel">×</button>
     <h2 id="panel-name"></h2>
     <p id="panel-name-fr" class="muted"></p>
+    <dl id="panel-stats"></dl>
     <dl id="panel-codes"></dl>
-    <p class="muted small">Borders and codes: Natural Earth (public domain).</p>
+    <p id="panel-credit" class="muted small"></p>
   </aside>
 
   <div id="fallback" hidden>
@@ -28,7 +29,46 @@
 
   <div id="status" role="status">Loading the globe…</div>
 
+  <div id="controls">
+    <div id="timebar">
+      <label for="year" class="small muted">Year</label>
+      <input id="year" type="range" min="600" max="2026" step="1" value="2026"
+             aria-label="Year of the borders shown" aria-valuetext="Present day">
+      <output id="year-label" for="year">Present day</output>
+    </div>
+    <p id="snapshot-note" class="small muted" aria-live="polite">Borders: Natural Earth (2022)</p>
+    <div id="colorbar">
+      <label for="color-by" class="small muted">Colour by</label>
+      <select id="color-by">
+        <option value="none">Nothing</option>
+        <option value="pop">Population</option>
+        <option value="cbr">Birth rate</option>
+      </select>
+      <div id="legend" hidden></div>
+    </div>
+  </div>
+
+  <dialog id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About this globe</h2>
+    <p>This site's source code and its historical border files are free software under the
+      <a href="https://github.com/jonathansewe/World_globe/blob/main/LICENSE">GNU General Public License v3.0</a>.
+      The full source is at <a href="https://github.com/jonathansewe/World_globe">github.com/jonathansewe/World_globe</a>.</p>
+    <h3>Data and credits</h3>
+    <ul>
+      <li>Historical borders © André Ourednik and contributors, GPL-3.0:
+        <a href="https://github.com/aourednik/historical-basemaps">historical-basemaps</a>
+        (<a id="about-history-source" href="data/history-index.json">pinned version and changes</a>).
+        Maps are snapshots, and the upstream project calls them a work in progress.</li>
+      <li>Population and birth rate: World Bank, World Development Indicators (CC BY 4.0),
+        <a href="https://data.worldbank.org/">data.worldbank.org</a>.</li>
+      <li>Present-day borders and codes: <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain), version 5.1.2 (2022), de facto borders.</li>
+      <li>Globe drawing: <a href="https://github.com/vasturiano/globe.gl">globe.gl</a> (MIT).</li>
+    </ul>
+    <form method="dialog"><button type="submit">Close</button></form>
+  </dialog>
+
   <footer>
+    <a href="#about" id="about-link">About</a> ·
     <a href="tools/cors-check.html">Data source check</a> ·
     <a href="https://github.com/jonathansewe/World_globe">Source code (GPL-3.0)</a>
   </footer>
