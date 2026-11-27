@@ -1,0 +1,17 @@
+{
+  "name": "world-globe",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build:countries": "node scripts/build-country-index.mjs",
+    "validate": "node scripts/validate-data.mjs",
+    "test": "node tests/smoke.mjs",
+    "serve": "python3 -m http.server 8000 -d public"
+  },
+  "devDependencies": {
+    "mapshaper": "0.8.13",
+    "playwright": "1.63.0"
+  }
+}
