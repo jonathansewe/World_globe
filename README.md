@@ -8,7 +8,7 @@ An interactive 3D globe in the browser. Click a country to see:
 - **News:** recent articles from outlets based in that country (GDELT)
 - **TV:** links to official broadcaster websites and live pages
 
-It is a **static site**: HTML, CSS and JavaScript on GitHub Pages. There is no backend, no paid API and no API key anywhere.
+It is a **static site**: HTML, CSS and JavaScript on **Cloudflare Pages** at **https://world.jonathansewe.com** (not live yet). There is no backend, no paid API and no API key anywhere.
 
 > **Status: planning.** No application code yet. This repo currently holds the research and the plan.
 
@@ -17,7 +17,9 @@ It is a **static site**: HTML, CSS and JavaScript on GitHub Pages. There is no b
 | File | What's in it |
 |---|---|
 | [DATA_SOURCES.md](DATA_SOURCES.md) | The 7 data sources, each with URL, license, update frequency, CORS, limits and verified gotchas |
-| [PLAN.md](PLAN.md) | Architecture decisions, milestones M1–M6 with acceptance checks, and the risk register |
+| [PLAN.md](PLAN.md) | Architecture decisions, hosting setup, milestones M1–M6 with acceptance checks, and the risk register |
+| [CLAUDE.md](CLAUDE.md) | Rules for AI assistants working in this repo |
+| [LICENSE](LICENSE) | GPL-3.0 |
 
 ## How it works (planned)
 
@@ -37,12 +39,23 @@ It is a **static site**: HTML, CSS and JavaScript on GitHub Pages. There is no b
 
 ## Running locally (once M1 lands)
 
-No build step is needed. Serve the folder with any static server. Opening `index.html` directly from disk won't work, because browsers block `fetch()` on `file://` URLs:
+No build step is needed. The deployable site is the `public/` folder, so serve that folder with any static server. Opening `index.html` directly from disk won't work, because browsers block `fetch()` on `file://` URLs:
 
 ```bash
-python3 -m http.server 8000
+python3 -m http.server 8000 -d public
 # then open http://localhost:8000
 ```
+
+## Deployment
+
+Cloudflare Pages deploys this repo straight from GitHub:
+
+- Production branch: `main`
+- Build command: none
+- Output directory: `public`
+- Custom domain: `world.jonathansewe.com`
+
+Every push to `main` goes live. Every pull request gets its own preview URL. Full setup steps, including the DNS record, are in [PLAN.md → Hosting](PLAN.md#hosting-cloudflare-pages).
 
 Data refresh scripts (Node 20+):
 
@@ -63,12 +76,13 @@ node scripts/fetch-tv.mjs
 
 ## License
 
-**Decision needed before M3.** The historical borders dataset (`aourednik/historical-basemaps`) is **GPL-3.0**, and the simplified copies we ship are a modified version of it, so they must stay GPL-3.0. The two options:
+Copyright (C) 2026 World Globe contributors.
 
-1. **License the whole repository GPL-3.0** (recommended). This is the simplest way to comply and removes any ambiguity.
-2. Keep the app code under a permissive license (e.g. MIT), with `data/history/` separately under GPL-3.0 with its own `LICENSE`. This works, but every contributor has to understand the split.
+This project is free software under the **GNU General Public License v3.0**; see [LICENSE](LICENSE). You may redistribute and modify it under those terms. It comes with **no warranty**.
 
-Third-party data keeps its own license regardless: World Bank CC BY 4.0 (attribution required), GDELT (citation and link required), Wikidata CC0, Natural Earth public domain, iptv-org public domain, globe.gl MIT.
+**Why GPL-3.0:** the historical borders dataset (`aourednik/historical-basemaps`) is GPL-3.0. The simplified copies we ship are a modified version of it, so they have to stay GPL-3.0 anyway. Licensing the whole repo the same way avoids a split license that every contributor would need to understand. In practice it means anyone who distributes a modified version of this site must also publish its source under GPL-3.0.
+
+Third-party data keeps its own license, and the site credits each one: World Bank CC BY 4.0 (attribution required), GDELT (citation and link required), Wikidata CC0, Natural Earth public domain, iptv-org public domain, globe.gl MIT. All of these can be combined with a GPL-3.0 project.
 
 ## Attribution
 
