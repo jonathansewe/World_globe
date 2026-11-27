@@ -188,7 +188,10 @@ async function start() {
     .polygonSideColor(() => COLORS.side)
     .polygonStrokeColor(strokeColor)
     .polygonAltitude(altitude)
-    .polygonsTransitionDuration(150)
+    // No animated transitions: map switches and hovers apply at once.
+    // (Don't raise polygonCapCurvatureResolution above the default 5°: at 10° large
+    // shapes like the Russian Empire render with holes.)
+    .polygonsTransitionDuration(0)
     .onPolygonHover((f) => {
       hovered = f;
       el.style.cursor = f ? 'pointer' : 'grab';

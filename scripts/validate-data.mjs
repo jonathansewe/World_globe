@@ -3,6 +3,7 @@
 
 import { readFile, stat } from 'node:fs/promises';
 import { gzipSync } from 'node:zlib';
+import { isInverted } from './lib/rewind.mjs';
 
 const geo = JSON.parse(await readFile('public/data/countries-50m.json', 'utf8'));
 const { countries } = JSON.parse(await readFile('public/data/country-index.json', 'utf8'));
@@ -19,6 +20,8 @@ for (const f of geo.features) {
   seen.add(k);
   if (!countries[k]) unmatched.push(`${k} (${f.properties.name})`);
 }
+const invPresent = geo.features.filter(isInverted).map((f) => f.properties.name);
+check(invPresent.length === 0, `Inverted present-day polygons (would paint the whole globe): ${invPresent.slice(0, 10).join(', ')}`);
 check(unmatched.length === 0, `Features missing from index: ${unmatched.join(', ')}`);
 check(geo.features.length === Object.keys(countries).length, 'Map and index have different counts');
 
@@ -69,6 +72,8 @@ for (const y of hist.years) {
   const g = JSON.parse(buf);
   const bad = g.features.filter((f) => !f.geometry || !f.geometry.coordinates?.length).length;
   check(bad === 0, `${file}: ${bad} features without geometry`);
+  const inv = g.features.filter(isInverted).length;
+  check(inv === 0, `${file}: ${inv} inverted polygons (would paint the whole globe)`);
 }
 const sourceMd = await readFile(`public/${hist.folder}/SOURCE.md`, 'utf8');
 check(sourceMd.includes(hist.commit), 'SOURCE.md must name the pinned upstream commit');

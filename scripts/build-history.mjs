@@ -18,6 +18,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { rewindForGlobe } from './lib/rewind.mjs';
 
 const COMMIT = '4b5039e50d8d2464b065bd76ad6086cd4597108d';
 const BUILD = 'v1';
@@ -59,17 +60,25 @@ for (const year of YEARS) {
   if (source.features.length !== geo.features.length) throw new Error(`${year}: feature count changed`);
   const round = (c) => (typeof c === 'number' ? Math.round(c * 1e4) / 1e4 : c.map(round));
   let restored = 0;
-  geo.features.forEach((f, i) => {
+  const restoreCollapsed = () => geo.features.forEach((f, i) => {
     if (f.geometry?.coordinates?.length) return; // null or empty both mean "collapsed"
     const src = source.features[i];
     if ((src.properties.NAME ?? null) !== (f.properties.NAME ?? null)) throw new Error(`${year}: feature ${i} order mismatch`);
     f.geometry = { type: src.geometry.type, coordinates: round(src.geometry.coordinates) };
     restored++;
   });
-  if (restored) await writeFile(out, JSON.stringify(geo));
+  restoreCollapsed();
+  // mapshaper's ring direction paints the whole globe in globe.gl; flip it back.
+  const rw = rewindForGlobe(geo);
+  restoreCollapsed(); // a feature whose every part collapsed gets its original shape back
+  const rw2 = rewindForGlobe(geo);
+  const rewound = rw.flipped + rw2.flipped;
+  const droppedParts = rw.dropped + rw2.dropped;
+  if (geo.features.some((f) => !f.geometry?.coordinates?.length)) throw new Error(`${year}: a feature has no geometry left`);
+  await writeFile(out, JSON.stringify(geo));
   const unnamed = geo.features.filter((f) => !f.properties.NAME).length;
-  stats.push({ year, features: geo.features.length, unnamed, restored });
-  console.log(`${year}: ${geo.features.length} polygons, ${unnamed} unnamed, ${restored} restored`);
+  stats.push({ year, features: geo.features.length, unnamed, restored, droppedParts });
+  console.log(`${year}: ${geo.features.length} polygons, ${unnamed} unnamed, ${restored} restored, ${rewound} parts rewound, ${droppedParts} sliver parts dropped`);
 }
 
 await copyFile(join(ROOT, 'LICENSE'), join(OUT_DIR, 'LICENSE.txt'));
@@ -82,17 +91,19 @@ They are distributed under the same license.
 
 - **Upstream commit:** \`${COMMIT}\`
 - **Upstream files:** \`geojson/world_<year>.geojson\` for ${YEARS.length} years (${YEARS[0]} to ${YEARS.at(-1)})
-- **Changes made:** kept only the fields ${FIELDS.map((f) => `\`${f}\``).join(', ')}; simplified with
+- **Changes made:** reversed ring direction where needed so globe.gl draws each shape (not its complement); kept only the fields ${FIELDS.map((f) => `\`${f}\``).join(', ')}; simplified with
   mapshaper ${mapshaperVersion} (\`-simplify ${SIMPLIFY} keep-shapes\`, coordinates rounded to 0.001°).
 - **Built by:** \`scripts/build-history.mjs\` in https://github.com/jonathansewe/World_globe
 
 The upstream README calls these maps a work in progress. Many regions have no name:
 
-| Year | Polygons | Unnamed | Restored unsimplified* |
-|---|---|---|---|
-${stats.map((s) => `| ${s.year} | ${s.features} | ${s.unnamed} | ${s.restored} |`).join('\n')}
+| Year | Polygons | Unnamed | Restored unsimplified* | Sliver parts dropped** |
+|---|---|---|---|---|
+${stats.map((s) => `| ${s.year} | ${s.features} | ${s.unnamed} | ${s.restored} | ${s.droppedParts} |`).join('\n')}
 
 \* Shapes so small that simplification erased them; their original outline is kept instead, rounded to 0.0001°.
+
+\*\* Parts of a shape with no real area (collapsed slivers), which globe.gl would otherwise draw as the whole Earth. The rest of the shape is kept.
 `);
 
 await writeFile(join(ROOT, 'public/data/history-index.json'), JSON.stringify({

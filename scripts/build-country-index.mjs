@@ -13,6 +13,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { rewindForGlobe } from './lib/rewind.mjs';
 
 const NE_COMMIT = 'ca96624a56bd078437bca8184e78163e5039ad19';
 const NE_URL = `https://raw.githubusercontent.com/nvkelso/natural-earth-vector/${NE_COMMIT}/geojson/ne_50m_admin_0_countries.geojson`;
@@ -78,11 +79,17 @@ for (const f of src.features) {
   f.properties = { key, name: p.NAME };
 }
 
-// Simplify with mapshaper (keeps small islands, fixes ring order) and cut coordinate precision.
+// Simplify with mapshaper (keeps small islands) and cut coordinate precision.
 const tmp = await mkdtemp(join(tmpdir(), 'ne-'));
 const raw = join(tmp, 'in.json');
 await writeFile(raw, JSON.stringify(src));
 execFileSync('npx', ['mapshaper', raw, '-simplify', '25%', 'keep-shapes', '-o', OUT_GEO, 'precision=0.001', 'format=geojson'], { stdio: 'inherit' });
+// mapshaper's ring direction paints the whole globe in globe.gl; flip it back.
+const simplified = JSON.parse(await readFile(OUT_GEO, 'utf8'));
+const rw = rewindForGlobe(simplified);
+console.log(`Rewound ${rw.flipped} polygon parts for globe.gl, dropped ${rw.dropped} collapsed parts`);
+if (simplified.features.some((f) => !f.geometry?.coordinates?.length)) throw new Error('A country lost all its geometry');
+await writeFile(OUT_GEO, JSON.stringify(simplified));
 
 const sorted = Object.fromEntries(Object.keys(index).sort().map((k) => [k, index[k]]));
 await writeFile(OUT_INDEX, JSON.stringify({ source: `Natural Earth 50m admin 0, commit ${NE_COMMIT}`, countries: sorted }, null, 1) + '\n');

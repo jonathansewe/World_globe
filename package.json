@@ -3,14 +3,21 @@
   "private": true,
   "license": "GPL-3.0-only",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build:countries": "node scripts/build-country-index.mjs",
     "validate": "node scripts/validate-data.mjs",
     "test": "node tests/smoke.mjs",
-    "serve": "python3 -m http.server 8000 -d public"
+    "serve": "python3 -m http.server 8000 -d public",
+    "test:memory": "node tests/memory.mjs",
+    "test:unit": "node --test tests/worldbank.test.mjs",
+    "build:history": "node scripts/build-history.mjs",
+    "fetch:worldbank": "node scripts/fetch-worldbank.mjs"
   },
   "devDependencies": {
+    "d3-geo": "^3.1.2",
     "mapshaper": "0.8.13",
     "playwright": "1.63.0"
   }

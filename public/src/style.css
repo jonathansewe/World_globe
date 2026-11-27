@@ -143,6 +143,7 @@ footer { bottom: auto; top: 10px; }
     max-height: 50vh;
     border-radius: 16px 16px 0 0;
     z-index: 2;
+    background: #0c1420; /* opaque, so the slider underneath doesn't show through */
   }
   #controls { bottom: 8px; padding: 8px 10px; }
   #colorbar label { display: none; }
