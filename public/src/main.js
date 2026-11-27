@@ -78,6 +78,15 @@ async function start() {
   const capColor = (f) => (f === selected ? COLORS.selected : f === hovered ? COLORS.hover : COLORS.land);
   const altitude = (f) => (f === selected || f === hovered ? 0.012 : 0.006);
 
+  // Kept as a named function: globe.gl's onPolygonClick() is a setter only, so the
+  // smoke test and select() call this directly instead of reading it back.
+  function handleClick(f) {
+    selected = f;
+    globe.polygonCapColor(capColor).polygonAltitude(altitude);
+    const key = f.properties.key;
+    showPanel(key, countries[key] || { name: f.properties.name });
+  }
+
   const el = $('globe');
   const globe = window.Globe()(el)
     .backgroundColor('#02040a')
@@ -97,12 +106,7 @@ async function start() {
       label.hidden = !f;
       globe.polygonCapColor(capColor).polygonAltitude(altitude);
     })
-    .onPolygonClick((f) => {
-      selected = f;
-      globe.polygonCapColor(capColor).polygonAltitude(altitude);
-      const key = f.properties.key;
-      showPanel(key, countries[key] || { name: f.properties.name });
-    });
+    .onPolygonClick((f) => handleClick(f));
 
   globe.globeMaterial().color.set(COLORS.ocean);
   globe.controls().autoRotate = true;
@@ -122,7 +126,7 @@ async function start() {
   // Exposed for the smoke test and for debugging in the console.
   window.__worldGlobe = { globe, countries, features: geo.features, select: (key) => {
     const f = geo.features.find((x) => x.properties.key === key);
-    if (f) globe.onPolygonClick()(f);
+    if (f) handleClick(f);
     return Boolean(f);
   } };
 

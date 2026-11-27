@@ -14,9 +14,24 @@ const results = [];
 const check = (name, ok, detail = '') => { results.push({ name, ok, detail }); };
 const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 
+// The test machine has no GPU, so WebGL runs in software (SwiftShader). There, globe.gl's
+// render loop can take so long per frame that the page stops answering for 20 s or more.
+// The checks below test data and layout, not frame rate, so the render loop is paused
+// as soon as the app exposes the globe. Frame rate must be checked on a real phone.
+const pauseRenderLoop = () => {
+  const iv = setInterval(() => {
+    if (window.__worldGlobe) { window.__worldGlobe.globe.pauseAnimation(); clearInterval(iv); }
+  }, 20);
+};
+const newPage = async (opts) => {
+  const page = await browser.newPage(opts);
+  await page.addInitScript(pauseRenderLoop);
+  return page;
+};
+
 try {
   // Desktop
-  const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+  const page = await newPage({ viewport: { width: 1280, height: 800 } });
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   page.on('pageerror', (e) => errors.push(e.message));
@@ -36,7 +51,7 @@ try {
   check('No console errors (desktop)', errors.length === 0, errors.join(' | '));
 
   // Phone (390 px wide)
-  const phone = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  const phone = await newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   await phone.goto(URL);
   await phone.waitForFunction(() => window.__worldGlobe, null, { timeout: 30000 });
   await phone.evaluate(() => window.__worldGlobe.select('BFA'));
