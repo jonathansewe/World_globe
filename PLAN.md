@@ -79,20 +79,24 @@ Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside
 
 ## M2: Country statistics (World Bank)
 
+> **Status (2026-11-27): 5 of 6 checks pass.** Open: the spot check against data.worldbank.org, which couldn't be reached from the build container.
+
 **Scope**
 - `scripts/fetch-worldbank.mjs` downloads `SP.POP.TOTL` and `SP.DYN.CBRT.IN` with `mrnev=1`, drops aggregates (`region.id == "NA"`), and writes `data/countries.json` with value, year and `lastupdated`.
 - A weekly scheduled Action reruns the script and commits only if the data changed.
 - The panel shows population and birth rate, each with its **year** and source. A choropleth toggle colours countries by either metric.
 
 **Acceptance checks**
-- [ ] `countries.json` contains no aggregates. The validator fails if an ID like `WLD`, `EUU` or `HIC` appears.
-- [ ] Every Natural Earth feature with a World Bank code shows values. Taiwan, Western Sahara and the other no-data features show "No data", never `0`.
+- [x] `countries.json` contains no aggregates. The validator fails if an ID like `WLD`, `EUU` or `HIC` appears. *(2026-11-27: Action run 46080333000 wrote 217 countries and excluded 79 aggregates; validator checks a 48-code aggregate list)*
+- [x] Every Natural Earth feature with a World Bank code shows values. Taiwan, Western Sahara and the other no-data features show "No data", never `0`. *(2026-11-27: validator lists the 27 features with no World Bank series of their own; smoke test shows Taiwan as "No data")*
 - [ ] Spot check: Germany, India, Nigeria, Brazil and Japan match data.worldbank.org exactly (value and year).
-- [ ] Every number displays its year and a "World Bank, WDI (CC BY 4.0)" credit.
-- [ ] The choropleth legend uses a colour-blind-safe scale, and the classes are labelled with real values.
-- [ ] Running the Action twice with no upstream change produces **no** commit (idempotent).
+- [x] Every number displays its year and a "World Bank, WDI (CC BY 4.0)" credit. *(2026-11-27: smoke test (Germany: 83,491,249 (2025), 8.1 per 1,000 (2024)))*
+- [x] The choropleth legend uses a colour-blind-safe scale, and the classes are labelled with real values. *(2026-11-27: viridis, quintile classes labelled e.g. 3.6M – 10.9M, plus No data)*
+- [x] Running the Action twice with no upstream change produces **no** commit (idempotent). *(2026-11-27: second run 46083940730 succeeded and committed nothing)*
 
 ## M3: Historical borders and the time slider (600 → today)
+
+> **Status (2026-11-27): every acceptance check passes** in the test container (software WebGL). It goes live with M1's hosting. Frame rate on a real phone is not covered by these checks and should be looked at once the site is up.
 
 **Scope**
 - `scripts/build-history.mjs` downloads the 32 snapshots (600 to 2010) at a **pinned commit**, simplifies them with mapshaper and writes `public/data/history/world_<year>.json` plus `SOURCE.md`, which records the upstream repo, commit and simplification settings. That record is what GPL-3.0 needs for a modified work.
@@ -101,12 +105,12 @@ Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside
 - When the year isn't "present", the modern panels (statistics, leaders, news, TV) are hidden or clearly marked "present-day data".
 
 **Acceptance checks**
-- [ ] All 32 snapshots plus "present" load. Each simplified file is ≤ 400 KB gzipped, and the validator checks this.
-- [ ] Snapshots are fetched lazily, only when selected. After the first load, switching between cached snapshots takes ≤ 1 s.
-- [ ] Correctness spot checks, using the source's exact `NAME`s (verified 2026-11-27): 600 has "Eastern Roman Empire" and "Sasanian Empire", 1914 has "Austro-Hungarian Empire", 1945 has "Austria" and "Hungary" separately, and 2010 has "Sudan" but no South Sudan while present day (Natural Earth) has both.
-- [ ] Dragging the slider end-to-end 10 times doesn't grow memory by more than 50 MB (Chrome DevTools heap snapshot), so old layers are disposed.
-- [ ] Keyboard: arrow keys step one snapshot, Home/End jump to 600 and present, and the slider has an ARIA label with the current year.
-- [ ] The GPL-3.0 notice, the link to `LICENSE` and the link to the source repo are visible in About, and `public/data/history/SOURCE.md` names the pinned upstream commit.
+- [x] All 32 snapshots plus "present" load. Each simplified file is ≤ 400 KB gzipped, and the validator checks this. *(2026-11-27: largest is 1492 at 330 KB)*
+- [x] Snapshots are fetched lazily, only when selected. After the first load, switching between cached snapshots takes ≤ 1 s. *(2026-11-27: 130 ms in software WebGL, smoke test; real-phone timing still to confirm)*
+- [x] Correctness spot checks, using the source's exact `NAME`s (verified 2026-11-27): 600 has "Eastern Roman Empire" and "Sasanian Empire", 1914 has "Austro-Hungarian Empire", 1945 has "Austria" and "Hungary" separately, and 2010 has "Sudan" but no South Sudan while present day (Natural Earth) has both. *(2026-11-27: smoke test)*
+- [x] Dragging the slider end-to-end 10 times doesn't grow memory by more than 50 MB (Chrome DevTools heap snapshot), so old layers are disposed. *(2026-11-27: `npm run test:memory`, JS heap after forced GC grew 0.0 MB; GPU memory not measured)*
+- [x] Keyboard: arrow keys step one snapshot, Home/End jump to 600 and present, and the slider has an ARIA label with the current year. *(2026-11-27: smoke test)*
+- [x] The GPL-3.0 notice, the link to `LICENSE` and the link to the source repo are visible in About, and `public/data/history/SOURCE.md` names the pinned upstream commit. *(2026-11-27: smoke test and validator; SOURCE.md lives in `data/history/<commit>-v1/`)*
 
 ## M3b: Wars layer (major wars through time)
 
@@ -192,4 +196,5 @@ Added 2026-11-27 at the user's request. Built only after M3 is done, because it 
 | Natural Earth stale (2022) | Certain | Minor border inaccuracies | Honest "Natural Earth 2022" label. |
 | iptv-org links legally questionable | Medium | Legal | Link out only, allowlist first, blocklist filter. |
 | Wars data disputed or license unclear | Medium | Wrong dates, or a layer that can't ship | Source audit first in M3b, two sources per war, curated list, uncertain dates shown as uncertain. |
+| mapshaper writes polygon rings in the direction globe.gl reads as "everything except this shape" | Certain (happened) | Whole globe painted, 20 s+ loads | **Resolved 2026-11-27:** `scripts/lib/rewind.mjs` in both build scripts; the validator fails on any inverted polygon. |
 | GeoJSON too heavy for phones | High without simplification | Low FPS | Size budgets enforced in validators. |

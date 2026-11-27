@@ -49,6 +49,7 @@ Not every fact here was checked the same way, so each one is tagged:
   - `country/all` also returns **aggregates** such as "World", "Euro area" and "Low income". Filter them out using `/v2/country?format=json&per_page=400`, where aggregates have `region.id == "NA"`.
   - Natural Earth's `WB_A3` field is **wrong for the live API**: it gives `KSV` for Kosovo (the API uses `XKX`) and `WBG` for Palestine (the API uses `PSE`). Join on Natural Earth `ISO_A3_EH` and keep a small override table.
   - Taiwan and Western Sahara have no World Bank data. Show "No data", never 0.
+- **Verified 2026-11-27 ✅ (GitHub Actions run 46080333000):** the API answered from a GitHub runner with no key. `/v2/country` returned 296 entries, 79 of them aggregates with `region.id == "NA"`, leaving 217 countries. Kosovo is `XKX` and Palestine `PSE` in the API, as noted above. Both indicators had `lastupdated` 2026-11-11. Latest years: population 2025, birth rate 2024. Browser CORS is still unverified, and the build path doesn't need it.
 - **Decision:** Fetch at **build time** with a scheduled GitHub Action and commit the result as `data/countries.json`. This avoids the CORS risk and about 400 requests per visitor, and it makes the site load faster. Two indicators for about 270 entries is small. Data that changes a few times a year doesn't need to be live.
 
 ## 2. Wikidata Query Service (SPARQL)
