@@ -6,7 +6,8 @@ Six milestones. Each one ends with **acceptance checks** that pass or fail and a
 
 | Decision | Choice | Why |
 |---|---|---|
-| Hosting | GitHub Pages | Free, static, HTTPS. The free plan needs a **public** repo. |
+| Hosting | **Cloudflare Pages**, custom domain `world.jonathansewe.com`, output directory `public/` | Free, static, HTTPS, global CDN, and a preview URL for every branch or PR. The repo doesn't need to be public. See *Hosting* below. |
+| License | **GPL-3.0** for the whole repo | Required anyway by the historical borders data, and simpler than a split license. |
 | Runtime code | Vanilla ES modules, no framework, no bundler | Small surface, nothing to compile, easy to learn from. |
 | Globe | globe.gl `2.46.2`, pinned (vendored in `vendor/`) | MIT, simplest WebGL globe, no token. |
 | Slow-changing data | **Build-time snapshots.** Scheduled GitHub Actions fetch the data and commit JSON to `data/` | Avoids CORS and rate-limit risk, makes loads fast and keeps working when an API is down. Not a backend: nothing runs when a visitor loads the page. |
@@ -18,15 +19,35 @@ Six milestones. Each one ends with **acceptance checks** that pass or fail and a
 Planned layout:
 
 ```
-index.html
-src/            app modules (globe, panel, slider, news, tv)
-data/           generated JSON + simplified GeoJSON (committed)
-data/history/   GPL-3.0 simplified historical borders + LICENSE
-scripts/        build-time fetch/transform scripts (Node 20+)
-tools/          cors-check.html (M1 diagnostic page)
-tests/          Playwright smoke tests + data validators
-.github/workflows/  pages deploy + scheduled data refresh
+public/                 ← the ONLY directory Cloudflare Pages publishes
+  index.html
+  _headers              Cloudflare Pages response headers (cache, security)
+  src/                  app modules (globe, panel, slider, news, tv)
+  data/                 generated JSON + simplified GeoJSON (committed)
+  data/history/         simplified historical borders + SOURCE.md
+  vendor/               pinned globe.gl build
+  tools/cors-check.html M1 diagnostic page
+scripts/                build-time fetch/transform scripts (Node 20+), not deployed
+tests/                  Playwright smoke tests + data validators, not deployed
+.github/workflows/      scheduled data refresh + CI checks (no deploy job)
+LICENSE                 GPL-3.0
 ```
+
+Why `public/`: Cloudflare Pages serves everything in its output directory. If that were the repo root, `scripts/`, `tests/`, `.github/` and `CLAUDE.md` would be on the public site too.
+
+Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside `public/`.
+
+### Hosting: Cloudflare Pages
+
+- **Deploy method:** Cloudflare's **Git integration**. Connect the GitHub repo in the Cloudflare dashboard with production branch `main`, build command empty, and output directory `public`. Every push to `main` deploys to production. Every other branch or PR gets a preview at `<branch>.<project>.pages.dev`.
+  - This needs **no Cloudflare token in GitHub** and no deploy workflow.
+  - The scheduled data Actions commit to `main` (or merge a reviewed PR), and that push triggers the redeploy.
+- **Custom domain:** In the Pages project, go to *Custom domains*, add `world.jonathansewe.com`, and only then create the DNS record.
+  - If `jonathansewe.com` uses Cloudflare DNS, Cloudflare creates the record itself: a proxied `CNAME world → <project>.pages.dev`.
+  - If DNS is elsewhere, create that CNAME at the DNS provider.
+  - Creating the CNAME *before* adding the domain in the dashboard gives a 522 error.
+- **Free-plan limits to check in M1 (📄 from Cloudflare docs; not verified here):** 500 builds per month, at most 20,000 files per deployment, and at most 25 MiB per file. Our data is far below these, but the scheduled Actions spend builds: roughly 30 daily plus 8 weekly, about 40 per month.
+- **Platform note:** Cloudflare now promotes *Workers (static assets)* for new projects, but Pages is still supported. Pages is the choice here because it needs no config file. If Pages is ever deprecated, moving to Workers static assets means adding a `wrangler.jsonc` that points at `public/`.
 
 ---
 
@@ -37,10 +58,15 @@ tests/          Playwright smoke tests + data validators
 - Hover highlights a country. Click opens a side panel showing its name and codes (ISO3, FIPS, Q-id) from `country-index.json`.
 - `scripts/build-country-index.mjs` generates the join table, including overrides.
 - `tools/cors-check.html` calls every runtime candidate endpoint from a real browser and prints `ok / blocked` per host.
-- A GitHub Pages deploy workflow.
+- Cloudflare Pages project connected to the repo (output dir `public`), with custom domain `world.jonathansewe.com`.
+- `public/_headers` sets long-lived caching for `data/history/*` and `vendor/*`, and short caching for the other `data/*.json`.
 
 **Acceptance checks**
-- [ ] The site is live at the GitHub Pages URL over HTTPS, and the console shows no errors on Chrome, Firefox and Safari (latest).
+- [ ] The site is live at **https://world.jonathansewe.com** with a valid TLS certificate, and the console shows no errors on Chrome, Firefox and Safari (latest).
+- [ ] Only `public/` is deployed: `https://world.jonathansewe.com/scripts/`, `/tests/` and `/CLAUDE.md` all return 404.
+- [ ] A pull request gets a working preview URL, and merging to `main` updates production with no manual step.
+- [ ] `curl -I` on a history file shows the long `Cache-Control` set in `_headers`.
+- [ ] The Cloudflare free-plan limits are confirmed in the Cloudflare docs and recorded here (replacing the 📄 tag).
 - [ ] The globe shows every feature of the 50m file. Clicking France shows `FRA`, Norway `NOR`, Kosovo `XKX` (the `-99` trap is handled).
 - [ ] The validator confirms every feature has a non-empty, unique join key. Unmatched features are listed explicitly, not silently dropped.
 - [ ] `cors-check.html` results for GDELT, World Bank and Wikidata are recorded in `DATA_SOURCES.md`, and every ⚠️ item there becomes ✅ or ❌.
@@ -67,7 +93,7 @@ tests/          Playwright smoke tests + data validators
 ## M3: Historical borders and the time slider (600 → today)
 
 **Scope**
-- `scripts/build-history.mjs` downloads the 32 snapshots (600 to 2010) at a **pinned commit**, simplifies them with mapshaper and writes `data/history/world_<year>.json` plus GPL-3.0 `LICENSE` and `SOURCE.md`.
+- `scripts/build-history.mjs` downloads the 32 snapshots (600 to 2010) at a **pinned commit**, simplifies them with mapshaper and writes `public/data/history/world_<year>.json` plus `SOURCE.md`, which records the upstream repo, commit and simplification settings. That record is what GPL-3.0 needs for a modified work.
 - The slider covers 600 to the present year. It snaps to the latest snapshot ≤ the chosen year, shows "Showing borders of 1815", and "present" uses Natural Earth.
 - Polygons are coloured by `SUBJECTO`, so colonies take their ruler's colour. `BORDERPRECISION` 1 is drawn with dashed or softer edges. Unnamed polygons are labelled "Unnamed / unknown polity".
 - When the year isn't "present", the modern panels (statistics, leaders, news, TV) are hidden or clearly marked "present-day data".
@@ -78,7 +104,7 @@ tests/          Playwright smoke tests + data validators
 - [ ] Correctness spot checks, using the source's exact `NAME`s (verified 2026-11-27): 600 has "Eastern Roman Empire" and "Sasanian Empire", 1914 has "Austro-Hungarian Empire", 1945 has "Austria" and "Hungary" separately, and 2010 has "Sudan" but no South Sudan while present day (Natural Earth) has both.
 - [ ] Dragging the slider end-to-end 10 times doesn't grow memory by more than 50 MB (Chrome DevTools heap snapshot), so old layers are disposed.
 - [ ] Keyboard: arrow keys step one snapshot, Home/End jump to 600 and present, and the slider has an ARIA label with the current year.
-- [ ] The GPL-3.0 notice and source link are visible in About, and `data/history/LICENSE` exists.
+- [ ] The GPL-3.0 notice, the link to `LICENSE` and the link to the source repo are visible in About, and `public/data/history/SOURCE.md` names the pinned upstream commit.
 
 ## M4: Heads of state and government (Wikidata)
 
@@ -137,7 +163,8 @@ tests/          Playwright smoke tests + data validators
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
 | GDELT has no CORS | Medium | News feature needs a different transport | M1 test. JSONP, then build-time headlines. |
-| GPL-3.0 on historical data forces a repo-license decision | Certain | Legal | Decide before M3 (see README). |
+| GPL-3.0 obligations (source availability, license notice) | Certain | Legal | **Resolved:** whole repo is GPL-3.0, the source is on GitHub, and the About page links to it and to `LICENSE`. |
+| Cloudflare build quota or Pages deprecation | Low | Deploys stop | ~40 builds per month against a 500 limit. Migration path to Workers static assets noted under *Hosting*. |
 | Wikidata vandalism shows a wrong leader | Low/Medium | Embarrassing | PR review gate in M4. |
 | WDQS endpoint migration (2026–27) | Medium | Leader refresh breaks | One config constant, and the Action fails loudly. |
 | Natural Earth stale (2022) | Certain | Minor border inaccuracies | Honest "Natural Earth 2022" label. |
