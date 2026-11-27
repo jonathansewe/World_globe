@@ -1,6 +1,6 @@
 # Plan
 
-Six milestones. Each one ends with **acceptance checks** that pass or fail and are, where possible, automated. A milestone is done only when every check passes. Data facts and risks referenced here are in [DATA_SOURCES.md](DATA_SOURCES.md).
+Six milestones, plus M3b (wars layer) added after M3. Each one ends with **acceptance checks** that pass or fail and are, where possible, automated. A milestone is done only when every check passes. Data facts and risks referenced here are in [DATA_SOURCES.md](DATA_SOURCES.md).
 
 ## Architecture decisions (apply to every milestone)
 
@@ -106,6 +106,26 @@ Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside
 - [ ] Keyboard: arrow keys step one snapshot, Home/End jump to 600 and present, and the slider has an ARIA label with the current year.
 - [ ] The GPL-3.0 notice, the link to `LICENSE` and the link to the source repo are visible in About, and `public/data/history/SOURCE.md` names the pinned upstream commit.
 
+## M3b: Wars layer (major wars through time)
+
+Added 2026-11-27 at the user's request. Built only after M3 is done, because it reuses the M3 time slider.
+
+**Scope**
+- **Step 1, source audit (no code):** before any data is used, add a "Wars" section to `DATA_SOURCES.md` covering at least Wikidata (wars with start/end dates and locations) and one independent conflict dataset. For each: URL, license, coverage in years, and what it says about dates and casualties. Every fact gets a ✅ / 📄 / ⚠️ tag. If no candidate has a license compatible with GPL-3.0, stop and report.
+- **Curated list, not a query:** `data-src/wars.csv` holds a hand-picked list of about 50 major wars from 600 to today. Each row has a stable id, English and French names, start year, end year, a representative point (lat/lon), the main belligerents, and **at least two sources** (URLs). "Major" is decided by the list, not by a casualty threshold, because casualty figures are disputed and inconsistent across sources. The selection rule is written at the top of the file.
+- `scripts/build-wars.mjs` turns the CSV into `public/data/wars.json`. `scripts/validate-data.mjs` checks it.
+- On the globe, a war appears as a marker when the slider year falls between its start and end years. Clicking it opens the panel with its names, dates, belligerents and source links. A toggle shows or hides the layer.
+- Uncertain dates are shown as uncertain (for example "c. 1450"), never as precise.
+
+**Acceptance checks**
+- [ ] `DATA_SOURCES.md` has a "Wars" section with license and coverage for each candidate source, and every item is tagged.
+- [ ] The validator fails the build if any war has no start year, no end year, an end year before its start year, fewer than two source URLs, or a point outside valid lat/lon ranges.
+- [ ] Spot checks: at slider year 1340 the Hundred Years' War is shown. At 1917 World War I is shown. At 1950 the Korean War is shown and World War II is not.
+- [ ] Every source URL in `wars.json` returns HTTP 200 when checked by a script (dead links are listed, not silently dropped).
+- [ ] With the layer on, dragging the slider end-to-end stays as smooth as M3 without it (no new frame drops on the reference phone), and `wars.json` is ≤ 100 KB gzipped.
+- [ ] The toggle works by keyboard and has an ARIA label. Markers have a text label for screen readers.
+- [ ] About lists the wars data sources and their licenses.
+
 ## M4: Heads of state and government (Wikidata)
 
 **Scope**
@@ -169,4 +189,5 @@ Throughout this plan, `data/…`, `vendor/…` and `tools/…` mean paths inside
 | WDQS endpoint migration (2026–27) | Medium | Leader refresh breaks | One config constant, and the Action fails loudly. |
 | Natural Earth stale (2022) | Certain | Minor border inaccuracies | Honest "Natural Earth 2022" label. |
 | iptv-org links legally questionable | Medium | Legal | Link out only, allowlist first, blocklist filter. |
+| Wars data disputed or license unclear | Medium | Wrong dates, or a layer that can't ship | Source audit first in M3b, two sources per war, curated list, uncertain dates shown as uncertain. |
 | GeoJSON too heavy for phones | High without simplification | Low FPS | Size budgets enforced in validators. |
