@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data source check (CORS)</title>
+  <style>
+    body { margin: 0; padding: 16px; background: #0b1220; color: #e8eef5; font: 15px/1.45 system-ui, sans-serif; }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p { color: #9fb0c3; margin: 0 0 12px; }
+    button { font: inherit; padding: 10px 16px; border-radius: 8px; border: 0; background: #2f6fde; color: #fff; margin: 0 8px 12px 0; }
+    .row { padding: 10px 12px; margin-bottom: 8px; border-radius: 8px; background: #141e30; }
+    .row b { display: block; }
+    .ok { border-left: 6px solid #3bb273; }
+    .blocked { border-left: 6px solid #e5484d; }
+    .down { border-left: 6px solid #e2a03f; }
+    .wait { border-left: 6px solid #607089; }
+    code, pre { overflow-wrap: anywhere; white-space: pre-wrap; font-size: 12px; color: #c4d2e3; }
+    pre { background: #141e30; padding: 12px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Data source check</h1>
+  <p>Tests whether this browser may read each data source directly. Green = OK, red = blocked by CORS, orange = server unreachable or error. Then tap <b>Copy results</b> and paste them back.</p>
+  <button id="run" type="button">Run again</button>
+  <button id="copy" type="button">Copy results</button>
+  <div id="rows"></div>
+  <pre id="report"></pre>
+
+  <script type="module">
+    // Each test fetches one URL twice:
+    // 1. mode "cors": succeeds only if the server sends Access-Control-Allow-Origin.
+    // 2. mode "no-cors": succeeds (with an unreadable "opaque" response) if the server is reachable at all.
+    // CORS fails + no-cors works  => the server is up but blocks browser reads (CORS).
+    // Both fail                   => network problem or server down; the test says nothing about CORS.
+    const SPARQL = 'SELECT ?x WHERE { BIND(1 AS ?x) }';
+    const TESTS = [
+      { name: 'GDELT DOC API (news)', url: 'https://api.gdeltproject.org/api/v2/doc/doc?query=sourcecountry:FR&mode=artlist&format=json&maxrecords=5&timespan=24h' },
+      { name: 'World Bank API (statistics)', url: 'https://api.worldbank.org/v2/country/FRA/indicator/SP.POP.TOTL?format=json&mrnev=1' },
+      { name: 'Wikidata SPARQL (leaders)', url: 'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(SPARQL) },
+      { name: 'Control: raw.githubusercontent.com (known OK)', url: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/README.md' },
+    ];
+    const JSONP_URL = 'https://api.gdeltproject.org/api/v2/doc/doc?query=sourcecountry:FR&mode=artlist&format=jsonp&maxrecords=5&timespan=24h&callback=';
+
+    const rows = document.getElementById('rows');
+    const lines = [];
+
+    const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+
+    function addRow(name) {
+      const div = document.createElement('div');
+      div.className = 'row wait';
+      const b = document.createElement('b');
+      b.textContent = name;
+      const span = document.createElement('code');
+      span.textContent = 'testing…';
+      div.append(b, span);
+      rows.append(div);
+      return (cls, text) => { div.className = 'row ' + cls; span.textContent = text; };
+    }
+
+    async function runOne(t) {
+      const set = addRow(t.name);
+      const t0 = performance.now();
+      try {
+        const res = await withTimeout(fetch(t.url, { mode: 'cors', cache: 'no-store' }), 15000);
+        const body = await res.text();
+        const ms = Math.round(performance.now() - t0);
+        const msg = `OK: readable, HTTP ${res.status}, ${body.length} bytes, ${ms} ms. Starts: ${body.slice(0, 80).replace(/\s+/g, ' ')}`;
+        set(res.ok ? 'ok' : 'down', msg);
+        lines.push(`${t.name}: ${res.ok ? 'OK' : 'HTTP ' + res.status} (CORS allowed), ${ms} ms`);
+      } catch (err) {
+        let reachable = false;
+        try { await withTimeout(fetch(t.url, { mode: 'no-cors', cache: 'no-store' }), 15000); reachable = true; } catch {}
+        if (reachable) {
+          set('blocked', `BLOCKED: server reachable but no CORS header (${err.message}).`);
+          lines.push(`${t.name}: BLOCKED by CORS`);
+        } else {
+          set('down', `UNREACHABLE: ${err.message}. Network or server problem, CORS unknown.`);
+          lines.push(`${t.name}: UNREACHABLE (${err.message})`);
+        }
+      }
+    }
+
+    // JSONP loads the response as a <script>, which CORS doesn't restrict.
+    function runJsonp() {
+      const set = addRow('GDELT JSONP fallback');
+      return new Promise((resolve) => {
+        const cb = 'gdeltCb' + Date.now();
+        const s = document.createElement('script');
+        const done = (cls, msg, line) => { set(cls, msg); lines.push('GDELT JSONP: ' + line); delete window[cb]; s.remove(); resolve(); };
+        const timer = setTimeout(() => done('down', 'No callback within 15 s (JSONP not supported or server down).', 'NO CALLBACK'), 15000);
+        window[cb] = (data) => {
+          clearTimeout(timer);
+          const n = Array.isArray(data?.articles) ? data.articles.length : 'unknown';
+          done('ok', `OK: callback fired, ${n} articles.`, `OK (${n} articles)`);
+        };
+        s.onerror = () => { clearTimeout(timer); done('down', 'Script failed to load.', 'SCRIPT ERROR'); };
+        s.src = JSONP_URL + cb;
+        document.head.append(s);
+      });
+    }
+
+    async function runAll() {
+      rows.replaceChildren();
+      lines.length = 0;
+      document.getElementById('report').textContent = '';
+      // One after another: GDELT rate-limits bursts.
+      for (const t of TESTS) await runOne(t);
+      await runJsonp();
+      const head = `CORS check ${new Date().toISOString()}\nPage: ${location.origin}\nBrowser: ${navigator.userAgent}`;
+      document.getElementById('report').textContent = head + '\n' + lines.join('\n');
+    }
+
+    document.getElementById('run').addEventListener('click', runAll);
+    document.getElementById('copy').addEventListener('click', async () => {
+      const text = document.getElementById('report').textContent;
+      try { await navigator.clipboard.writeText(text); document.getElementById('copy').textContent = 'Copied'; }
+      catch { alert(text); }
+    });
+    runAll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,2436 @@
+{
+ "source": "Natural Earth 50m admin 0, commit ca96624a56bd078437bca8184e78163e5039ad19",
+ "countries": {
+  "ABW": {
+   "name": "Aruba",
+   "nameFr": "Aruba",
+   "type": "Country",
+   "sovereign": "Netherlands",
+   "iso3": "ABW",
+   "adm0": "ABW",
+   "fips": "AA",
+   "qid": "Q21203"
+  },
+  "AFG": {
+   "name": "Afghanistan",
+   "nameFr": "Afghanistan",
+   "type": "Sovereign country",
+   "sovereign": "Afghanistan",
+   "iso3": "AFG",
+   "adm0": "AFG",
+   "fips": "AF",
+   "qid": "Q889"
+  },
+  "AGO": {
+   "name": "Angola",
+   "nameFr": "Angola",
+   "type": "Sovereign country",
+   "sovereign": "Angola",
+   "iso3": "AGO",
+   "adm0": "AGO",
+   "fips": "AO",
+   "qid": "Q916"
+  },
+  "AIA": {
+   "name": "Anguilla",
+   "nameFr": "Anguilla",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "AIA",
+   "adm0": "AIA",
+   "fips": "AV",
+   "qid": "Q25228"
+  },
+  "ALA": {
+   "name": "Åland",
+   "nameFr": "Åland",
+   "type": "Country",
+   "sovereign": "Finland",
+   "iso3": "ALA",
+   "adm0": "ALD",
+   "fips": null,
+   "qid": "Q5689"
+  },
+  "ALB": {
+   "name": "Albania",
+   "nameFr": "Albanie",
+   "type": "Sovereign country",
+   "sovereign": "Albania",
+   "iso3": "ALB",
+   "adm0": "ALB",
+   "fips": "AL",
+   "qid": "Q222"
+  },
+  "AND": {
+   "name": "Andorra",
+   "nameFr": "Andorre",
+   "type": "Sovereign country",
+   "sovereign": "Andorra",
+   "iso3": "AND",
+   "adm0": "AND",
+   "fips": "AN",
+   "qid": "Q228"
+  },
+  "ARE": {
+   "name": "United Arab Emirates",
+   "nameFr": "Émirats arabes unis",
+   "type": "Sovereign country",
+   "sovereign": "United Arab Emirates",
+   "iso3": "ARE",
+   "adm0": "ARE",
+   "fips": "AE",
+   "qid": "Q878"
+  },
+  "ARG": {
+   "name": "Argentina",
+   "nameFr": "Argentine",
+   "type": "Sovereign country",
+   "sovereign": "Argentina",
+   "iso3": "ARG",
+   "adm0": "ARG",
+   "fips": "AR",
+   "qid": "Q414"
+  },
+  "ARM": {
+   "name": "Armenia",
+   "nameFr": "Arménie",
+   "type": "Sovereign country",
+   "sovereign": "Armenia",
+   "iso3": "ARM",
+   "adm0": "ARM",
+   "fips": "AM",
+   "qid": "Q399"
+  },
+  "ASM": {
+   "name": "American Samoa",
+   "nameFr": "Samoa américaines",
+   "type": "Dependency",
+   "sovereign": "United States of America",
+   "iso3": "ASM",
+   "adm0": "ASM",
+   "fips": "AQ",
+   "qid": "Q16641"
+  },
+  "ATA": {
+   "name": "Antarctica",
+   "nameFr": "Antarctique",
+   "type": "Indeterminate",
+   "sovereign": "Antarctica",
+   "iso3": "ATA",
+   "adm0": "ATA",
+   "fips": "AY",
+   "qid": "Q51"
+  },
+  "ATC": {
+   "name": "Ashmore and Cartier Is.",
+   "nameFr": "Îles Ashmore-et-Cartier",
+   "type": "Dependency",
+   "sovereign": "Australia",
+   "iso3": null,
+   "adm0": "ATC",
+   "fips": "AT",
+   "qid": "Q133888"
+  },
+  "ATF": {
+   "name": "Fr. S. Antarctic Lands",
+   "nameFr": "Terres australes et antarctiques françaises",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "ATF",
+   "adm0": "ATF",
+   "fips": "FS",
+   "qid": "Q129003"
+  },
+  "ATG": {
+   "name": "Antigua and Barb.",
+   "nameFr": "Antigua-et-Barbuda",
+   "type": "Sovereign country",
+   "sovereign": "Antigua and Barbuda",
+   "iso3": "ATG",
+   "adm0": "ATG",
+   "fips": "AC",
+   "qid": "Q781"
+  },
+  "AUS": {
+   "name": "Australia",
+   "nameFr": "Australie",
+   "type": "Country",
+   "sovereign": "Australia",
+   "iso3": "AUS",
+   "adm0": "AUS",
+   "fips": "AS",
+   "qid": "Q408"
+  },
+  "AUT": {
+   "name": "Austria",
+   "nameFr": "Autriche",
+   "type": "Sovereign country",
+   "sovereign": "Austria",
+   "iso3": "AUT",
+   "adm0": "AUT",
+   "fips": "AU",
+   "qid": "Q40"
+  },
+  "AZE": {
+   "name": "Azerbaijan",
+   "nameFr": "Azerbaïdjan",
+   "type": "Sovereign country",
+   "sovereign": "Azerbaijan",
+   "iso3": "AZE",
+   "adm0": "AZE",
+   "fips": "AJ",
+   "qid": "Q227"
+  },
+  "BDI": {
+   "name": "Burundi",
+   "nameFr": "Burundi",
+   "type": "Sovereign country",
+   "sovereign": "Burundi",
+   "iso3": "BDI",
+   "adm0": "BDI",
+   "fips": "BY",
+   "qid": "Q967"
+  },
+  "BEL": {
+   "name": "Belgium",
+   "nameFr": "Belgique",
+   "type": "Sovereign country",
+   "sovereign": "Belgium",
+   "iso3": "BEL",
+   "adm0": "BEL",
+   "fips": "BE",
+   "qid": "Q31"
+  },
+  "BEN": {
+   "name": "Benin",
+   "nameFr": "Bénin",
+   "type": "Sovereign country",
+   "sovereign": "Benin",
+   "iso3": "BEN",
+   "adm0": "BEN",
+   "fips": "BN",
+   "qid": "Q962"
+  },
+  "BFA": {
+   "name": "Burkina Faso",
+   "nameFr": "Burkina Faso",
+   "type": "Sovereign country",
+   "sovereign": "Burkina Faso",
+   "iso3": "BFA",
+   "adm0": "BFA",
+   "fips": "UV",
+   "qid": "Q965"
+  },
+  "BGD": {
+   "name": "Bangladesh",
+   "nameFr": "Bangladesh",
+   "type": "Sovereign country",
+   "sovereign": "Bangladesh",
+   "iso3": "BGD",
+   "adm0": "BGD",
+   "fips": "BG",
+   "qid": "Q902"
+  },
+  "BGR": {
+   "name": "Bulgaria",
+   "nameFr": "Bulgarie",
+   "type": "Sovereign country",
+   "sovereign": "Bulgaria",
+   "iso3": "BGR",
+   "adm0": "BGR",
+   "fips": "BU",
+   "qid": "Q219"
+  },
+  "BHR": {
+   "name": "Bahrain",
+   "nameFr": "Bahreïn",
+   "type": "Sovereign country",
+   "sovereign": "Bahrain",
+   "iso3": "BHR",
+   "adm0": "BHR",
+   "fips": "BA",
+   "qid": "Q398"
+  },
+  "BHS": {
+   "name": "Bahamas",
+   "nameFr": "Bahamas",
+   "type": "Sovereign country",
+   "sovereign": "The Bahamas",
+   "iso3": "BHS",
+   "adm0": "BHS",
+   "fips": "BF",
+   "qid": "Q778"
+  },
+  "BIH": {
+   "name": "Bosnia and Herz.",
+   "nameFr": "Bosnie-Herzégovine",
+   "type": "Sovereign country",
+   "sovereign": "Bosnia and Herzegovina",
+   "iso3": "BIH",
+   "adm0": "BIH",
+   "fips": "BK",
+   "qid": "Q225"
+  },
+  "BLM": {
+   "name": "St-Barthélemy",
+   "nameFr": "Saint-Barthélemy",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "BLM",
+   "adm0": "BLM",
+   "fips": "TB",
+   "qid": "Q25362"
+  },
+  "BLR": {
+   "name": "Belarus",
+   "nameFr": "Biélorussie",
+   "type": "Sovereign country",
+   "sovereign": "Belarus",
+   "iso3": "BLR",
+   "adm0": "BLR",
+   "fips": "BO",
+   "qid": "Q184"
+  },
+  "BLZ": {
+   "name": "Belize",
+   "nameFr": "Belize",
+   "type": "Sovereign country",
+   "sovereign": "Belize",
+   "iso3": "BLZ",
+   "adm0": "BLZ",
+   "fips": "BH",
+   "qid": "Q242"
+  },
+  "BMU": {
+   "name": "Bermuda",
+   "nameFr": "Bermudes",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "BMU",
+   "adm0": "BMU",
+   "fips": "BD",
+   "qid": "Q23635"
+  },
+  "BOL": {
+   "name": "Bolivia",
+   "nameFr": "Bolivie",
+   "type": "Sovereign country",
+   "sovereign": "Bolivia",
+   "iso3": "BOL",
+   "adm0": "BOL",
+   "fips": "BL",
+   "qid": "Q750"
+  },
+  "BRA": {
+   "name": "Brazil",
+   "nameFr": "Brésil",
+   "type": "Sovereign country",
+   "sovereign": "Brazil",
+   "iso3": "BRA",
+   "adm0": "BRA",
+   "fips": "BR",
+   "qid": "Q155"
+  },
+  "BRB": {
+   "name": "Barbados",
+   "nameFr": "Barbade",
+   "type": "Sovereign country",
+   "sovereign": "Barbados",
+   "iso3": "BRB",
+   "adm0": "BRB",
+   "fips": "BB",
+   "qid": "Q244"
+  },
+  "BRN": {
+   "name": "Brunei",
+   "nameFr": "Brunei",
+   "type": "Sovereign country",
+   "sovereign": "Brunei",
+   "iso3": "BRN",
+   "adm0": "BRN",
+   "fips": "BX",
+   "qid": "Q921"
+  },
+  "BTN": {
+   "name": "Bhutan",
+   "nameFr": "Bhoutan",
+   "type": "Sovereign country",
+   "sovereign": "Bhutan",
+   "iso3": "BTN",
+   "adm0": "BTN",
+   "fips": "BT",
+   "qid": "Q917"
+  },
+  "BWA": {
+   "name": "Botswana",
+   "nameFr": "Botswana",
+   "type": "Sovereign country",
+   "sovereign": "Botswana",
+   "iso3": "BWA",
+   "adm0": "BWA",
+   "fips": "BC",
+   "qid": "Q963"
+  },
+  "CAF": {
+   "name": "Central African Rep.",
+   "nameFr": "République centrafricaine",
+   "type": "Sovereign country",
+   "sovereign": "Central African Republic",
+   "iso3": "CAF",
+   "adm0": "CAF",
+   "fips": "CT",
+   "qid": "Q929"
+  },
+  "CAN": {
+   "name": "Canada",
+   "nameFr": "Canada",
+   "type": "Sovereign country",
+   "sovereign": "Canada",
+   "iso3": "CAN",
+   "adm0": "CAN",
+   "fips": "CA",
+   "qid": "Q16"
+  },
+  "CHE": {
+   "name": "Switzerland",
+   "nameFr": "Suisse",
+   "type": "Sovereign country",
+   "sovereign": "Switzerland",
+   "iso3": "CHE",
+   "adm0": "CHE",
+   "fips": "SZ",
+   "qid": "Q39"
+  },
+  "CHL": {
+   "name": "Chile",
+   "nameFr": "Chili",
+   "type": "Sovereign country",
+   "sovereign": "Chile",
+   "iso3": "CHL",
+   "adm0": "CHL",
+   "fips": "CI",
+   "qid": "Q298"
+  },
+  "CHN": {
+   "name": "China",
+   "nameFr": "République populaire de Chine",
+   "type": "Country",
+   "sovereign": "China",
+   "iso3": "CHN",
+   "adm0": "CHN",
+   "fips": "CH",
+   "qid": "Q148"
+  },
+  "CIV": {
+   "name": "Côte d'Ivoire",
+   "nameFr": "Côte d'Ivoire",
+   "type": "Sovereign country",
+   "sovereign": "Ivory Coast",
+   "iso3": "CIV",
+   "adm0": "CIV",
+   "fips": "IV",
+   "qid": "Q1008"
+  },
+  "CMR": {
+   "name": "Cameroon",
+   "nameFr": "Cameroun",
+   "type": "Sovereign country",
+   "sovereign": "Cameroon",
+   "iso3": "CMR",
+   "adm0": "CMR",
+   "fips": "CM",
+   "qid": "Q1009"
+  },
+  "COD": {
+   "name": "Dem. Rep. Congo",
+   "nameFr": "République démocratique du Congo",
+   "type": "Sovereign country",
+   "sovereign": "Democratic Republic of the Congo",
+   "iso3": "COD",
+   "adm0": "COD",
+   "fips": "CG",
+   "qid": "Q974"
+  },
+  "COG": {
+   "name": "Congo",
+   "nameFr": "République du Congo",
+   "type": "Sovereign country",
+   "sovereign": "Republic of the Congo",
+   "iso3": "COG",
+   "adm0": "COG",
+   "fips": "CF",
+   "qid": "Q971"
+  },
+  "COK": {
+   "name": "Cook Is.",
+   "nameFr": "Îles Cook",
+   "type": "Dependency",
+   "sovereign": "New Zealand",
+   "iso3": "COK",
+   "adm0": "COK",
+   "fips": "CW",
+   "qid": "Q26988"
+  },
+  "COL": {
+   "name": "Colombia",
+   "nameFr": "Colombie",
+   "type": "Sovereign country",
+   "sovereign": "Colombia",
+   "iso3": "COL",
+   "adm0": "COL",
+   "fips": "CO",
+   "qid": "Q739"
+  },
+  "COM": {
+   "name": "Comoros",
+   "nameFr": "Comores",
+   "type": "Sovereign country",
+   "sovereign": "Comoros",
+   "iso3": "COM",
+   "adm0": "COM",
+   "fips": "CN",
+   "qid": "Q970"
+  },
+  "CPV": {
+   "name": "Cabo Verde",
+   "nameFr": "Cap-Vert",
+   "type": "Sovereign country",
+   "sovereign": "Cabo Verde",
+   "iso3": "CPV",
+   "adm0": "CPV",
+   "fips": "CV",
+   "qid": "Q1011"
+  },
+  "CRI": {
+   "name": "Costa Rica",
+   "nameFr": "Costa Rica",
+   "type": "Sovereign country",
+   "sovereign": "Costa Rica",
+   "iso3": "CRI",
+   "adm0": "CRI",
+   "fips": "CS",
+   "qid": "Q800"
+  },
+  "CUB": {
+   "name": "Cuba",
+   "nameFr": "Cuba",
+   "type": "Sovereignty",
+   "sovereign": "Cuba",
+   "iso3": "CUB",
+   "adm0": "CUB",
+   "fips": "CU",
+   "qid": "Q241"
+  },
+  "CUW": {
+   "name": "Curaçao",
+   "nameFr": "Curaçao",
+   "type": "Country",
+   "sovereign": "Netherlands",
+   "iso3": "CUW",
+   "adm0": "CUW",
+   "fips": "NT",
+   "qid": "Q25279"
+  },
+  "CYM": {
+   "name": "Cayman Is.",
+   "nameFr": "îles Caïmans",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "CYM",
+   "adm0": "CYM",
+   "fips": "CJ",
+   "qid": "Q5785"
+  },
+  "CYN": {
+   "name": "N. Cyprus",
+   "nameFr": "Chypre du Nord",
+   "type": "Sovereign country",
+   "sovereign": "Northern Cyprus",
+   "iso3": null,
+   "adm0": "CYN",
+   "fips": null,
+   "qid": "Q23681",
+   "override": "No FIPS code of its own; GDELT counts it under Cyprus (CY)?"
+  },
+  "CYP": {
+   "name": "Cyprus",
+   "nameFr": "Chypre",
+   "type": "Sovereign country",
+   "sovereign": "Cyprus",
+   "iso3": "CYP",
+   "adm0": "CYP",
+   "fips": "CY",
+   "qid": "Q229"
+  },
+  "CZE": {
+   "name": "Czechia",
+   "nameFr": "Tchéquie",
+   "type": "Sovereign country",
+   "sovereign": "Czechia",
+   "iso3": "CZE",
+   "adm0": "CZE",
+   "fips": "EZ",
+   "qid": "Q213"
+  },
+  "DEU": {
+   "name": "Germany",
+   "nameFr": "Allemagne",
+   "type": "Sovereign country",
+   "sovereign": "Germany",
+   "iso3": "DEU",
+   "adm0": "DEU",
+   "fips": "GM",
+   "qid": "Q183"
+  },
+  "DJI": {
+   "name": "Djibouti",
+   "nameFr": "Djibouti",
+   "type": "Sovereign country",
+   "sovereign": "Djibouti",
+   "iso3": "DJI",
+   "adm0": "DJI",
+   "fips": "DJ",
+   "qid": "Q977"
+  },
+  "DMA": {
+   "name": "Dominica",
+   "nameFr": "Dominique",
+   "type": "Sovereign country",
+   "sovereign": "Dominica",
+   "iso3": "DMA",
+   "adm0": "DMA",
+   "fips": "DO",
+   "qid": "Q784"
+  },
+  "DNK": {
+   "name": "Denmark",
+   "nameFr": "Danemark",
+   "type": "Country",
+   "sovereign": "Denmark",
+   "iso3": "DNK",
+   "adm0": "DNK",
+   "fips": "DA",
+   "qid": "Q35"
+  },
+  "DOM": {
+   "name": "Dominican Rep.",
+   "nameFr": "République dominicaine",
+   "type": "Sovereign country",
+   "sovereign": "Dominican Republic",
+   "iso3": "DOM",
+   "adm0": "DOM",
+   "fips": "DR",
+   "qid": "Q786"
+  },
+  "DZA": {
+   "name": "Algeria",
+   "nameFr": "Algérie",
+   "type": "Sovereign country",
+   "sovereign": "Algeria",
+   "iso3": "DZA",
+   "adm0": "DZA",
+   "fips": "AG",
+   "qid": "Q262"
+  },
+  "ECU": {
+   "name": "Ecuador",
+   "nameFr": "Équateur",
+   "type": "Sovereign country",
+   "sovereign": "Ecuador",
+   "iso3": "ECU",
+   "adm0": "ECU",
+   "fips": "EC",
+   "qid": "Q736"
+  },
+  "EGY": {
+   "name": "Egypt",
+   "nameFr": "Égypte",
+   "type": "Sovereign country",
+   "sovereign": "Egypt",
+   "iso3": "EGY",
+   "adm0": "EGY",
+   "fips": "EG",
+   "qid": "Q79"
+  },
+  "ERI": {
+   "name": "Eritrea",
+   "nameFr": "Érythrée",
+   "type": "Sovereign country",
+   "sovereign": "Eritrea",
+   "iso3": "ERI",
+   "adm0": "ERI",
+   "fips": "ER",
+   "qid": "Q986"
+  },
+  "ESH": {
+   "name": "W. Sahara",
+   "nameFr": "Sahara occidental",
+   "type": "Indeterminate",
+   "sovereign": "Western Sahara",
+   "iso3": "ESH",
+   "adm0": "SAH",
+   "fips": "WI",
+   "qid": "Q6250"
+  },
+  "ESP": {
+   "name": "Spain",
+   "nameFr": "Espagne",
+   "type": "Sovereign country",
+   "sovereign": "Spain",
+   "iso3": "ESP",
+   "adm0": "ESP",
+   "fips": "SP",
+   "qid": "Q29"
+  },
+  "EST": {
+   "name": "Estonia",
+   "nameFr": "Estonie",
+   "type": "Sovereign country",
+   "sovereign": "Estonia",
+   "iso3": "EST",
+   "adm0": "EST",
+   "fips": "EN",
+   "qid": "Q191"
+  },
+  "ETH": {
+   "name": "Ethiopia",
+   "nameFr": "Éthiopie",
+   "type": "Sovereign country",
+   "sovereign": "Ethiopia",
+   "iso3": "ETH",
+   "adm0": "ETH",
+   "fips": "ET",
+   "qid": "Q115"
+  },
+  "FIN": {
+   "name": "Finland",
+   "nameFr": "Finlande",
+   "type": "Country",
+   "sovereign": "Finland",
+   "iso3": "FIN",
+   "adm0": "FIN",
+   "fips": "FI",
+   "qid": "Q33"
+  },
+  "FJI": {
+   "name": "Fiji",
+   "nameFr": "Fidji",
+   "type": "Sovereign country",
+   "sovereign": "Fiji",
+   "iso3": "FJI",
+   "adm0": "FJI",
+   "fips": "FJ",
+   "qid": "Q712"
+  },
+  "FLK": {
+   "name": "Falkland Is.",
+   "nameFr": "îles Malouines",
+   "type": "Disputed",
+   "sovereign": "United Kingdom",
+   "iso3": "FLK",
+   "adm0": "FLK",
+   "fips": "FK",
+   "qid": "Q9648"
+  },
+  "FRA": {
+   "name": "France",
+   "nameFr": "France",
+   "type": "Country",
+   "sovereign": "France",
+   "iso3": "FRA",
+   "adm0": "FRA",
+   "fips": "FR",
+   "qid": "Q142"
+  },
+  "FRO": {
+   "name": "Faeroe Is.",
+   "nameFr": "îles Féroé",
+   "type": "Dependency",
+   "sovereign": "Denmark",
+   "iso3": "FRO",
+   "adm0": "FRO",
+   "fips": "FO",
+   "qid": "Q4628"
+  },
+  "FSM": {
+   "name": "Micronesia",
+   "nameFr": "États fédérés de Micronésie",
+   "type": "Sovereign country",
+   "sovereign": "Federated States of Micronesia",
+   "iso3": "FSM",
+   "adm0": "FSM",
+   "fips": "FM",
+   "qid": "Q702"
+  },
+  "GAB": {
+   "name": "Gabon",
+   "nameFr": "Gabon",
+   "type": "Sovereign country",
+   "sovereign": "Gabon",
+   "iso3": "GAB",
+   "adm0": "GAB",
+   "fips": "GB",
+   "qid": "Q1000"
+  },
+  "GBR": {
+   "name": "United Kingdom",
+   "nameFr": "Royaume-Uni",
+   "type": "Country",
+   "sovereign": "United Kingdom",
+   "iso3": "GBR",
+   "adm0": "GBR",
+   "fips": "UK",
+   "qid": "Q145"
+  },
+  "GEO": {
+   "name": "Georgia",
+   "nameFr": "Géorgie",
+   "type": "Sovereign country",
+   "sovereign": "Georgia",
+   "iso3": "GEO",
+   "adm0": "GEO",
+   "fips": "GG",
+   "qid": "Q230"
+  },
+  "GGY": {
+   "name": "Guernsey",
+   "nameFr": "Guernesey",
+   "type": "Country",
+   "sovereign": "United Kingdom",
+   "iso3": "GGY",
+   "adm0": "GGY",
+   "fips": "GK",
+   "qid": "Q25230"
+  },
+  "GHA": {
+   "name": "Ghana",
+   "nameFr": "Ghana",
+   "type": "Sovereign country",
+   "sovereign": "Ghana",
+   "iso3": "GHA",
+   "adm0": "GHA",
+   "fips": "GH",
+   "qid": "Q117"
+  },
+  "GIN": {
+   "name": "Guinea",
+   "nameFr": "Guinée",
+   "type": "Sovereign country",
+   "sovereign": "Guinea",
+   "iso3": "GIN",
+   "adm0": "GIN",
+   "fips": "GV",
+   "qid": "Q1006"
+  },
+  "GMB": {
+   "name": "Gambia",
+   "nameFr": "Gambie",
+   "type": "Sovereign country",
+   "sovereign": "Gambia",
+   "iso3": "GMB",
+   "adm0": "GMB",
+   "fips": "GA",
+   "qid": "Q1005"
+  },
+  "GNB": {
+   "name": "Guinea-Bissau",
+   "nameFr": "Guinée-Bissau",
+   "type": "Sovereign country",
+   "sovereign": "Guinea-Bissau",
+   "iso3": "GNB",
+   "adm0": "GNB",
+   "fips": "PU",
+   "qid": "Q1007"
+  },
+  "GNQ": {
+   "name": "Eq. Guinea",
+   "nameFr": "Guinée équatoriale",
+   "type": "Sovereign country",
+   "sovereign": "Equatorial Guinea",
+   "iso3": "GNQ",
+   "adm0": "GNQ",
+   "fips": "EK",
+   "qid": "Q983"
+  },
+  "GRC": {
+   "name": "Greece",
+   "nameFr": "Grèce",
+   "type": "Sovereign country",
+   "sovereign": "Greece",
+   "iso3": "GRC",
+   "adm0": "GRC",
+   "fips": "GR",
+   "qid": "Q41"
+  },
+  "GRD": {
+   "name": "Grenada",
+   "nameFr": "Grenade",
+   "type": "Sovereign country",
+   "sovereign": "Grenada",
+   "iso3": "GRD",
+   "adm0": "GRD",
+   "fips": "GJ",
+   "qid": "Q769"
+  },
+  "GRL": {
+   "name": "Greenland",
+   "nameFr": "Groenland",
+   "type": "Country",
+   "sovereign": "Denmark",
+   "iso3": "GRL",
+   "adm0": "GRL",
+   "fips": "GL",
+   "qid": "Q223"
+  },
+  "GTM": {
+   "name": "Guatemala",
+   "nameFr": "Guatemala",
+   "type": "Sovereign country",
+   "sovereign": "Guatemala",
+   "iso3": "GTM",
+   "adm0": "GTM",
+   "fips": "GT",
+   "qid": "Q774"
+  },
+  "GUM": {
+   "name": "Guam",
+   "nameFr": "Guam",
+   "type": "Dependency",
+   "sovereign": "United States of America",
+   "iso3": "GUM",
+   "adm0": "GUM",
+   "fips": "GQ",
+   "qid": "Q16635"
+  },
+  "GUY": {
+   "name": "Guyana",
+   "nameFr": "Guyana",
+   "type": "Sovereign country",
+   "sovereign": "Guyana",
+   "iso3": "GUY",
+   "adm0": "GUY",
+   "fips": "GY",
+   "qid": "Q734"
+  },
+  "HKG": {
+   "name": "Hong Kong",
+   "nameFr": "Hong Kong",
+   "type": "Country",
+   "sovereign": "China",
+   "iso3": "HKG",
+   "adm0": "HKG",
+   "fips": "HK",
+   "qid": "Q8646"
+  },
+  "HMD": {
+   "name": "Heard I. and McDonald Is.",
+   "nameFr": "îles Heard-et-MacDonald",
+   "type": "Dependency",
+   "sovereign": "Australia",
+   "iso3": "HMD",
+   "adm0": "HMD",
+   "fips": "HM",
+   "qid": "Q131198"
+  },
+  "HND": {
+   "name": "Honduras",
+   "nameFr": "Honduras",
+   "type": "Sovereign country",
+   "sovereign": "Honduras",
+   "iso3": "HND",
+   "adm0": "HND",
+   "fips": "HO",
+   "qid": "Q783"
+  },
+  "HRV": {
+   "name": "Croatia",
+   "nameFr": "Croatie",
+   "type": "Sovereign country",
+   "sovereign": "Croatia",
+   "iso3": "HRV",
+   "adm0": "HRV",
+   "fips": "HR",
+   "qid": "Q224"
+  },
+  "HTI": {
+   "name": "Haiti",
+   "nameFr": "Haïti",
+   "type": "Sovereign country",
+   "sovereign": "Haiti",
+   "iso3": "HTI",
+   "adm0": "HTI",
+   "fips": "HA",
+   "qid": "Q790"
+  },
+  "HUN": {
+   "name": "Hungary",
+   "nameFr": "Hongrie",
+   "type": "Sovereign country",
+   "sovereign": "Hungary",
+   "iso3": "HUN",
+   "adm0": "HUN",
+   "fips": "HU",
+   "qid": "Q28"
+  },
+  "IDN": {
+   "name": "Indonesia",
+   "nameFr": "Indonésie",
+   "type": "Sovereign country",
+   "sovereign": "Indonesia",
+   "iso3": "IDN",
+   "adm0": "IDN",
+   "fips": "ID",
+   "qid": "Q252"
+  },
+  "IMN": {
+   "name": "Isle of Man",
+   "nameFr": "île de Man",
+   "type": "Country",
+   "sovereign": "United Kingdom",
+   "iso3": "IMN",
+   "adm0": "IMN",
+   "fips": "IM",
+   "qid": "Q9676"
+  },
+  "IND": {
+   "name": "India",
+   "nameFr": "Inde",
+   "type": "Sovereign country",
+   "sovereign": "India",
+   "iso3": "IND",
+   "adm0": "IND",
+   "fips": "IN",
+   "qid": "Q668"
+  },
+  "IOA": {
+   "name": "Indian Ocean Ter.",
+   "nameFr": "Territoires extérieurs australiens de l'Océan Indien",
+   "type": "Dependency",
+   "sovereign": "Australia",
+   "iso3": null,
+   "adm0": "IOA",
+   "fips": null,
+   "qid": "Q4824275"
+  },
+  "IOT": {
+   "name": "Br. Indian Ocean Ter.",
+   "nameFr": "Territoire britannique de l’océan Indien",
+   "type": "Disputed",
+   "sovereign": "United Kingdom",
+   "iso3": "IOT",
+   "adm0": "IOT",
+   "fips": "IO",
+   "qid": "Q43448"
+  },
+  "IRL": {
+   "name": "Ireland",
+   "nameFr": "Irlande",
+   "type": "Sovereign country",
+   "sovereign": "Ireland",
+   "iso3": "IRL",
+   "adm0": "IRL",
+   "fips": "EI",
+   "qid": "Q27"
+  },
+  "IRN": {
+   "name": "Iran",
+   "nameFr": "Iran",
+   "type": "Sovereign country",
+   "sovereign": "Iran",
+   "iso3": "IRN",
+   "adm0": "IRN",
+   "fips": "IR",
+   "qid": "Q794"
+  },
+  "IRQ": {
+   "name": "Iraq",
+   "nameFr": "Irak",
+   "type": "Sovereign country",
+   "sovereign": "Iraq",
+   "iso3": "IRQ",
+   "adm0": "IRQ",
+   "fips": "IZ",
+   "qid": "Q796"
+  },
+  "ISL": {
+   "name": "Iceland",
+   "nameFr": "Islande",
+   "type": "Sovereign country",
+   "sovereign": "Iceland",
+   "iso3": "ISL",
+   "adm0": "ISL",
+   "fips": "IC",
+   "qid": "Q189"
+  },
+  "ISR": {
+   "name": "Israel",
+   "nameFr": "Israël",
+   "type": "Disputed",
+   "sovereign": "Israel",
+   "iso3": "ISR",
+   "adm0": "ISR",
+   "fips": "IS",
+   "qid": "Q801",
+   "override": "FIPS 10-4"
+  },
+  "ITA": {
+   "name": "Italy",
+   "nameFr": "Italie",
+   "type": "Sovereign country",
+   "sovereign": "Italy",
+   "iso3": "ITA",
+   "adm0": "ITA",
+   "fips": "IT",
+   "qid": "Q38"
+  },
+  "JAM": {
+   "name": "Jamaica",
+   "nameFr": "Jamaïque",
+   "type": "Sovereign country",
+   "sovereign": "Jamaica",
+   "iso3": "JAM",
+   "adm0": "JAM",
+   "fips": "JM",
+   "qid": "Q766"
+  },
+  "JEY": {
+   "name": "Jersey",
+   "nameFr": "Jersey",
+   "type": "Country",
+   "sovereign": "United Kingdom",
+   "iso3": "JEY",
+   "adm0": "JEY",
+   "fips": "JE",
+   "qid": "Q785"
+  },
+  "JOR": {
+   "name": "Jordan",
+   "nameFr": "Jordanie",
+   "type": "Sovereign country",
+   "sovereign": "Jordan",
+   "iso3": "JOR",
+   "adm0": "JOR",
+   "fips": "JO",
+   "qid": "Q810"
+  },
+  "JPN": {
+   "name": "Japan",
+   "nameFr": "Japon",
+   "type": "Sovereign country",
+   "sovereign": "Japan",
+   "iso3": "JPN",
+   "adm0": "JPN",
+   "fips": "JA",
+   "qid": "Q17"
+  },
+  "KAS": {
+   "name": "Siachen Glacier",
+   "nameFr": "glacier de Siachen",
+   "type": "Indeterminate",
+   "sovereign": "Kashmir",
+   "iso3": null,
+   "adm0": "KAS",
+   "fips": null,
+   "qid": "Q333946",
+   "override": "Disputed area (Siachen Glacier); no FIPS code"
+  },
+  "KAZ": {
+   "name": "Kazakhstan",
+   "nameFr": "Kazakhstan",
+   "type": "Sovereignty",
+   "sovereign": "Kazakhstan",
+   "iso3": "KAZ",
+   "adm0": "KAZ",
+   "fips": "KZ",
+   "qid": "Q232"
+  },
+  "KEN": {
+   "name": "Kenya",
+   "nameFr": "Kenya",
+   "type": "Sovereign country",
+   "sovereign": "Kenya",
+   "iso3": "KEN",
+   "adm0": "KEN",
+   "fips": "KE",
+   "qid": "Q114"
+  },
+  "KGZ": {
+   "name": "Kyrgyzstan",
+   "nameFr": "Kirghizistan",
+   "type": "Sovereign country",
+   "sovereign": "Kyrgyzstan",
+   "iso3": "KGZ",
+   "adm0": "KGZ",
+   "fips": "KG",
+   "qid": "Q813"
+  },
+  "KHM": {
+   "name": "Cambodia",
+   "nameFr": "Cambodge",
+   "type": "Sovereign country",
+   "sovereign": "Cambodia",
+   "iso3": "KHM",
+   "adm0": "KHM",
+   "fips": "CB",
+   "qid": "Q424"
+  },
+  "KIR": {
+   "name": "Kiribati",
+   "nameFr": "Kiribati",
+   "type": "Sovereign country",
+   "sovereign": "Kiribati",
+   "iso3": "KIR",
+   "adm0": "KIR",
+   "fips": "KR",
+   "qid": "Q710"
+  },
+  "KNA": {
+   "name": "St. Kitts and Nevis",
+   "nameFr": "Saint-Christophe-et-Niévès",
+   "type": "Sovereign country",
+   "sovereign": "Saint Kitts and Nevis",
+   "iso3": "KNA",
+   "adm0": "KNA",
+   "fips": "SC",
+   "qid": "Q763"
+  },
+  "KOR": {
+   "name": "South Korea",
+   "nameFr": "Corée du Sud",
+   "type": "Sovereign country",
+   "sovereign": "South Korea",
+   "iso3": "KOR",
+   "adm0": "KOR",
+   "fips": "KS",
+   "qid": "Q884"
+  },
+  "KWT": {
+   "name": "Kuwait",
+   "nameFr": "Koweït",
+   "type": "Sovereign country",
+   "sovereign": "Kuwait",
+   "iso3": "KWT",
+   "adm0": "KWT",
+   "fips": "KU",
+   "qid": "Q817"
+  },
+  "LAO": {
+   "name": "Laos",
+   "nameFr": "Laos",
+   "type": "Sovereign country",
+   "sovereign": "Laos",
+   "iso3": "LAO",
+   "adm0": "LAO",
+   "fips": "LA",
+   "qid": "Q819"
+  },
+  "LBN": {
+   "name": "Lebanon",
+   "nameFr": "Liban",
+   "type": "Sovereign country",
+   "sovereign": "Lebanon",
+   "iso3": "LBN",
+   "adm0": "LBN",
+   "fips": "LE",
+   "qid": "Q822"
+  },
+  "LBR": {
+   "name": "Liberia",
+   "nameFr": "Liberia",
+   "type": "Sovereign country",
+   "sovereign": "Liberia",
+   "iso3": "LBR",
+   "adm0": "LBR",
+   "fips": "LI",
+   "qid": "Q1014"
+  },
+  "LBY": {
+   "name": "Libya",
+   "nameFr": "Libye",
+   "type": "Sovereign country",
+   "sovereign": "Libya",
+   "iso3": "LBY",
+   "adm0": "LBY",
+   "fips": "LY",
+   "qid": "Q1016"
+  },
+  "LCA": {
+   "name": "Saint Lucia",
+   "nameFr": "Sainte-Lucie",
+   "type": "Sovereign country",
+   "sovereign": "Saint Lucia",
+   "iso3": "LCA",
+   "adm0": "LCA",
+   "fips": "ST",
+   "qid": "Q760"
+  },
+  "LIE": {
+   "name": "Liechtenstein",
+   "nameFr": "Liechtenstein",
+   "type": "Sovereign country",
+   "sovereign": "Liechtenstein",
+   "iso3": "LIE",
+   "adm0": "LIE",
+   "fips": "LS",
+   "qid": "Q347"
+  },
+  "LKA": {
+   "name": "Sri Lanka",
+   "nameFr": "Sri Lanka",
+   "type": "Sovereign country",
+   "sovereign": "Sri Lanka",
+   "iso3": "LKA",
+   "adm0": "LKA",
+   "fips": "CE",
+   "qid": "Q854"
+  },
+  "LSO": {
+   "name": "Lesotho",
+   "nameFr": "Lesotho",
+   "type": "Sovereign country",
+   "sovereign": "Lesotho",
+   "iso3": "LSO",
+   "adm0": "LSO",
+   "fips": "LT",
+   "qid": "Q1013"
+  },
+  "LTU": {
+   "name": "Lithuania",
+   "nameFr": "Lituanie",
+   "type": "Sovereign country",
+   "sovereign": "Lithuania",
+   "iso3": "LTU",
+   "adm0": "LTU",
+   "fips": "LH",
+   "qid": "Q37"
+  },
+  "LUX": {
+   "name": "Luxembourg",
+   "nameFr": "Luxembourg",
+   "type": "Sovereign country",
+   "sovereign": "Luxembourg",
+   "iso3": "LUX",
+   "adm0": "LUX",
+   "fips": "LU",
+   "qid": "Q32"
+  },
+  "LVA": {
+   "name": "Latvia",
+   "nameFr": "Lettonie",
+   "type": "Sovereign country",
+   "sovereign": "Latvia",
+   "iso3": "LVA",
+   "adm0": "LVA",
+   "fips": "LG",
+   "qid": "Q211"
+  },
+  "MAC": {
+   "name": "Macao",
+   "nameFr": "Macao",
+   "type": "Country",
+   "sovereign": "China",
+   "iso3": "MAC",
+   "adm0": "MAC",
+   "fips": "MC",
+   "qid": "Q14773"
+  },
+  "MAF": {
+   "name": "St-Martin",
+   "nameFr": "Saint-Martin",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "MAF",
+   "adm0": "MAF",
+   "fips": "RN",
+   "qid": "Q126125"
+  },
+  "MAR": {
+   "name": "Morocco",
+   "nameFr": "Maroc",
+   "type": "Sovereign country",
+   "sovereign": "Morocco",
+   "iso3": "MAR",
+   "adm0": "MAR",
+   "fips": "MO",
+   "qid": "Q1028"
+  },
+  "MCO": {
+   "name": "Monaco",
+   "nameFr": "Monaco",
+   "type": "Sovereign country",
+   "sovereign": "Monaco",
+   "iso3": "MCO",
+   "adm0": "MCO",
+   "fips": "MN",
+   "qid": "Q235"
+  },
+  "MDA": {
+   "name": "Moldova",
+   "nameFr": "Moldavie",
+   "type": "Sovereign country",
+   "sovereign": "Moldova",
+   "iso3": "MDA",
+   "adm0": "MDA",
+   "fips": "MD",
+   "qid": "Q217"
+  },
+  "MDG": {
+   "name": "Madagascar",
+   "nameFr": "Madagascar",
+   "type": "Sovereign country",
+   "sovereign": "Madagascar",
+   "iso3": "MDG",
+   "adm0": "MDG",
+   "fips": "MA",
+   "qid": "Q1019"
+  },
+  "MDV": {
+   "name": "Maldives",
+   "nameFr": "Maldives",
+   "type": "Sovereign country",
+   "sovereign": "Maldives",
+   "iso3": "MDV",
+   "adm0": "MDV",
+   "fips": "MV",
+   "qid": "Q826"
+  },
+  "MEX": {
+   "name": "Mexico",
+   "nameFr": "Mexique",
+   "type": "Sovereign country",
+   "sovereign": "Mexico",
+   "iso3": "MEX",
+   "adm0": "MEX",
+   "fips": "MX",
+   "qid": "Q96"
+  },
+  "MHL": {
+   "name": "Marshall Is.",
+   "nameFr": "Îles Marshall",
+   "type": "Sovereign country",
+   "sovereign": "Marshall Islands",
+   "iso3": "MHL",
+   "adm0": "MHL",
+   "fips": "RM",
+   "qid": "Q709"
+  },
+  "MKD": {
+   "name": "North Macedonia",
+   "nameFr": "Macédoine du Nord",
+   "type": "Sovereign country",
+   "sovereign": "North Macedonia",
+   "iso3": "MKD",
+   "adm0": "MKD",
+   "fips": "MK",
+   "qid": "Q221"
+  },
+  "MLI": {
+   "name": "Mali",
+   "nameFr": "Mali",
+   "type": "Sovereign country",
+   "sovereign": "Mali",
+   "iso3": "MLI",
+   "adm0": "MLI",
+   "fips": "ML",
+   "qid": "Q912"
+  },
+  "MLT": {
+   "name": "Malta",
+   "nameFr": "Malte",
+   "type": "Sovereign country",
+   "sovereign": "Malta",
+   "iso3": "MLT",
+   "adm0": "MLT",
+   "fips": "MT",
+   "qid": "Q233"
+  },
+  "MMR": {
+   "name": "Myanmar",
+   "nameFr": "Birmanie",
+   "type": "Sovereign country",
+   "sovereign": "Myanmar",
+   "iso3": "MMR",
+   "adm0": "MMR",
+   "fips": "BM",
+   "qid": "Q836"
+  },
+  "MNE": {
+   "name": "Montenegro",
+   "nameFr": "Monténégro",
+   "type": "Sovereign country",
+   "sovereign": "Montenegro",
+   "iso3": "MNE",
+   "adm0": "MNE",
+   "fips": "MJ",
+   "qid": "Q236"
+  },
+  "MNG": {
+   "name": "Mongolia",
+   "nameFr": "Mongolie",
+   "type": "Sovereign country",
+   "sovereign": "Mongolia",
+   "iso3": "MNG",
+   "adm0": "MNG",
+   "fips": "MG",
+   "qid": "Q711"
+  },
+  "MNP": {
+   "name": "N. Mariana Is.",
+   "nameFr": "îles Mariannes du Nord",
+   "type": "Dependency",
+   "sovereign": "United States of America",
+   "iso3": "MNP",
+   "adm0": "MNP",
+   "fips": "CQ",
+   "qid": "Q16644"
+  },
+  "MOZ": {
+   "name": "Mozambique",
+   "nameFr": "Mozambique",
+   "type": "Sovereign country",
+   "sovereign": "Mozambique",
+   "iso3": "MOZ",
+   "adm0": "MOZ",
+   "fips": "MZ",
+   "qid": "Q1029"
+  },
+  "MRT": {
+   "name": "Mauritania",
+   "nameFr": "Mauritanie",
+   "type": "Sovereign country",
+   "sovereign": "Mauritania",
+   "iso3": "MRT",
+   "adm0": "MRT",
+   "fips": "MR",
+   "qid": "Q1025"
+  },
+  "MSR": {
+   "name": "Montserrat",
+   "nameFr": "Montserrat",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "MSR",
+   "adm0": "MSR",
+   "fips": "MH",
+   "qid": "Q13353"
+  },
+  "MUS": {
+   "name": "Mauritius",
+   "nameFr": "Maurice",
+   "type": "Sovereign country",
+   "sovereign": "Mauritius",
+   "iso3": "MUS",
+   "adm0": "MUS",
+   "fips": "MP",
+   "qid": "Q1027"
+  },
+  "MWI": {
+   "name": "Malawi",
+   "nameFr": "Malawi",
+   "type": "Sovereign country",
+   "sovereign": "Malawi",
+   "iso3": "MWI",
+   "adm0": "MWI",
+   "fips": "MI",
+   "qid": "Q1020"
+  },
+  "MYS": {
+   "name": "Malaysia",
+   "nameFr": "Malaisie",
+   "type": "Sovereign country",
+   "sovereign": "Malaysia",
+   "iso3": "MYS",
+   "adm0": "MYS",
+   "fips": "MY",
+   "qid": "Q833"
+  },
+  "NAM": {
+   "name": "Namibia",
+   "nameFr": "Namibie",
+   "type": "Sovereign country",
+   "sovereign": "Namibia",
+   "iso3": "NAM",
+   "adm0": "NAM",
+   "fips": "WA",
+   "qid": "Q1030"
+  },
+  "NCL": {
+   "name": "New Caledonia",
+   "nameFr": "Nouvelle-Calédonie",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "NCL",
+   "adm0": "NCL",
+   "fips": "NC",
+   "qid": "Q33788"
+  },
+  "NER": {
+   "name": "Niger",
+   "nameFr": "Niger",
+   "type": "Sovereign country",
+   "sovereign": "Niger",
+   "iso3": "NER",
+   "adm0": "NER",
+   "fips": "NG",
+   "qid": "Q1032"
+  },
+  "NFK": {
+   "name": "Norfolk Island",
+   "nameFr": "Île Norfolk",
+   "type": "Dependency",
+   "sovereign": "Australia",
+   "iso3": "NFK",
+   "adm0": "NFK",
+   "fips": "NF",
+   "qid": "Q31057"
+  },
+  "NGA": {
+   "name": "Nigeria",
+   "nameFr": "Nigeria",
+   "type": "Sovereign country",
+   "sovereign": "Nigeria",
+   "iso3": "NGA",
+   "adm0": "NGA",
+   "fips": "NI",
+   "qid": "Q1033"
+  },
+  "NIC": {
+   "name": "Nicaragua",
+   "nameFr": "Nicaragua",
+   "type": "Sovereign country",
+   "sovereign": "Nicaragua",
+   "iso3": "NIC",
+   "adm0": "NIC",
+   "fips": "NU",
+   "qid": "Q811"
+  },
+  "NIU": {
+   "name": "Niue",
+   "nameFr": "Niue",
+   "type": "Dependency",
+   "sovereign": "New Zealand",
+   "iso3": "NIU",
+   "adm0": "NIU",
+   "fips": "NE",
+   "qid": "Q34020"
+  },
+  "NLD": {
+   "name": "Netherlands",
+   "nameFr": "Pays-Bas",
+   "type": "Country",
+   "sovereign": "Netherlands",
+   "iso3": "NLD",
+   "adm0": "NLD",
+   "fips": "NL",
+   "qid": "Q55"
+  },
+  "NOR": {
+   "name": "Norway",
+   "nameFr": "Norvège",
+   "type": "Sovereign country",
+   "sovereign": "Norway",
+   "iso3": "NOR",
+   "adm0": "NOR",
+   "fips": "NO",
+   "qid": "Q20",
+   "override": "FIPS 10-4"
+  },
+  "NPL": {
+   "name": "Nepal",
+   "nameFr": "Népal",
+   "type": "Sovereign country",
+   "sovereign": "Nepal",
+   "iso3": "NPL",
+   "adm0": "NPL",
+   "fips": "NP",
+   "qid": "Q837"
+  },
+  "NRU": {
+   "name": "Nauru",
+   "nameFr": "Nauru",
+   "type": "Sovereign country",
+   "sovereign": "Nauru",
+   "iso3": "NRU",
+   "adm0": "NRU",
+   "fips": "NR",
+   "qid": "Q697"
+  },
+  "NZL": {
+   "name": "New Zealand",
+   "nameFr": "Nouvelle-Zélande",
+   "type": "Country",
+   "sovereign": "New Zealand",
+   "iso3": "NZL",
+   "adm0": "NZL",
+   "fips": "NZ",
+   "qid": "Q664"
+  },
+  "OMN": {
+   "name": "Oman",
+   "nameFr": "Oman",
+   "type": "Sovereign country",
+   "sovereign": "Oman",
+   "iso3": "OMN",
+   "adm0": "OMN",
+   "fips": "MU",
+   "qid": "Q842"
+  },
+  "PAK": {
+   "name": "Pakistan",
+   "nameFr": "Pakistan",
+   "type": "Sovereign country",
+   "sovereign": "Pakistan",
+   "iso3": "PAK",
+   "adm0": "PAK",
+   "fips": "PK",
+   "qid": "Q843"
+  },
+  "PAN": {
+   "name": "Panama",
+   "nameFr": "Panama",
+   "type": "Sovereign country",
+   "sovereign": "Panama",
+   "iso3": "PAN",
+   "adm0": "PAN",
+   "fips": "PM",
+   "qid": "Q804"
+  },
+  "PCN": {
+   "name": "Pitcairn Is.",
+   "nameFr": "Iles Pitcairn",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "PCN",
+   "adm0": "PCN",
+   "fips": "PC",
+   "qid": "Q35672"
+  },
+  "PER": {
+   "name": "Peru",
+   "nameFr": "Pérou",
+   "type": "Sovereign country",
+   "sovereign": "Peru",
+   "iso3": "PER",
+   "adm0": "PER",
+   "fips": "PE",
+   "qid": "Q419"
+  },
+  "PHL": {
+   "name": "Philippines",
+   "nameFr": "Philippines",
+   "type": "Sovereign country",
+   "sovereign": "Philippines",
+   "iso3": "PHL",
+   "adm0": "PHL",
+   "fips": "RP",
+   "qid": "Q928"
+  },
+  "PLW": {
+   "name": "Palau",
+   "nameFr": "Palaos",
+   "type": "Sovereign country",
+   "sovereign": "Palau",
+   "iso3": "PLW",
+   "adm0": "PLW",
+   "fips": "PS",
+   "qid": "Q695"
+  },
+  "PNG": {
+   "name": "Papua New Guinea",
+   "nameFr": "Papouasie-Nouvelle-Guinée",
+   "type": "Sovereign country",
+   "sovereign": "Papua New Guinea",
+   "iso3": "PNG",
+   "adm0": "PNG",
+   "fips": "PP",
+   "qid": "Q691"
+  },
+  "POL": {
+   "name": "Poland",
+   "nameFr": "Pologne",
+   "type": "Sovereign country",
+   "sovereign": "Poland",
+   "iso3": "POL",
+   "adm0": "POL",
+   "fips": "PL",
+   "qid": "Q36"
+  },
+  "PRI": {
+   "name": "Puerto Rico",
+   "nameFr": "Porto Rico",
+   "type": "Dependency",
+   "sovereign": "United States of America",
+   "iso3": "PRI",
+   "adm0": "PRI",
+   "fips": "RQ",
+   "qid": "Q1183"
+  },
+  "PRK": {
+   "name": "North Korea",
+   "nameFr": "Corée du Nord",
+   "type": "Sovereign country",
+   "sovereign": "North Korea",
+   "iso3": "PRK",
+   "adm0": "PRK",
+   "fips": "KN",
+   "qid": "Q423"
+  },
+  "PRT": {
+   "name": "Portugal",
+   "nameFr": "Portugal",
+   "type": "Sovereign country",
+   "sovereign": "Portugal",
+   "iso3": "PRT",
+   "adm0": "PRT",
+   "fips": "PO",
+   "qid": "Q45"
+  },
+  "PRY": {
+   "name": "Paraguay",
+   "nameFr": "Paraguay",
+   "type": "Sovereign country",
+   "sovereign": "Paraguay",
+   "iso3": "PRY",
+   "adm0": "PRY",
+   "fips": "PA",
+   "qid": "Q733"
+  },
+  "PSE": {
+   "name": "Palestine",
+   "nameFr": "Palestine",
+   "type": "Indeterminate",
+   "sovereign": "Israel",
+   "iso3": "PSE",
+   "adm0": "PSX",
+   "fips": "WE",
+   "fipsAlt": [
+    "GZ"
+   ],
+   "qid": "Q23792",
+   "override": "FIPS 10-4 West Bank (WE) and Gaza Strip (GZ); confirm against GDELT in M5"
+  },
+  "PYF": {
+   "name": "Fr. Polynesia",
+   "nameFr": "Polynésie française",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "PYF",
+   "adm0": "PYF",
+   "fips": "FP",
+   "qid": "Q30971"
+  },
+  "QAT": {
+   "name": "Qatar",
+   "nameFr": "Qatar",
+   "type": "Sovereign country",
+   "sovereign": "Qatar",
+   "iso3": "QAT",
+   "adm0": "QAT",
+   "fips": "QA",
+   "qid": "Q846"
+  },
+  "ROU": {
+   "name": "Romania",
+   "nameFr": "Roumanie",
+   "type": "Sovereign country",
+   "sovereign": "Romania",
+   "iso3": "ROU",
+   "adm0": "ROU",
+   "fips": "RO",
+   "qid": "Q218"
+  },
+  "RUS": {
+   "name": "Russia",
+   "nameFr": "Russie",
+   "type": "Sovereign country",
+   "sovereign": "Russia",
+   "iso3": "RUS",
+   "adm0": "RUS",
+   "fips": "RS",
+   "qid": "Q159"
+  },
+  "RWA": {
+   "name": "Rwanda",
+   "nameFr": "Rwanda",
+   "type": "Sovereign country",
+   "sovereign": "Rwanda",
+   "iso3": "RWA",
+   "adm0": "RWA",
+   "fips": "RW",
+   "qid": "Q1037"
+  },
+  "SAU": {
+   "name": "Saudi Arabia",
+   "nameFr": "Arabie saoudite",
+   "type": "Sovereign country",
+   "sovereign": "Saudi Arabia",
+   "iso3": "SAU",
+   "adm0": "SAU",
+   "fips": "SA",
+   "qid": "Q851"
+  },
+  "SDN": {
+   "name": "Sudan",
+   "nameFr": "Soudan",
+   "type": "Sovereign country",
+   "sovereign": "Sudan",
+   "iso3": "SDN",
+   "adm0": "SDN",
+   "fips": "SU",
+   "qid": "Q1049"
+  },
+  "SEN": {
+   "name": "Senegal",
+   "nameFr": "Sénégal",
+   "type": "Sovereign country",
+   "sovereign": "Senegal",
+   "iso3": "SEN",
+   "adm0": "SEN",
+   "fips": "SG",
+   "qid": "Q1041"
+  },
+  "SGP": {
+   "name": "Singapore",
+   "nameFr": "Singapour",
+   "type": "Sovereign country",
+   "sovereign": "Singapore",
+   "iso3": "SGP",
+   "adm0": "SGP",
+   "fips": "SN",
+   "qid": "Q334"
+  },
+  "SGS": {
+   "name": "S. Geo. and the Is.",
+   "nameFr": "Géorgie du Sud-et-les Îles Sandwich du Sud",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "SGS",
+   "adm0": "SGS",
+   "fips": "SX",
+   "qid": "Q35086"
+  },
+  "SHN": {
+   "name": "Saint Helena",
+   "nameFr": "Sainte-Hélène",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "SHN",
+   "adm0": "SHN",
+   "fips": "SH",
+   "qid": "Q34497"
+  },
+  "SLB": {
+   "name": "Solomon Is.",
+   "nameFr": "Îles Salomon",
+   "type": "Sovereign country",
+   "sovereign": "Solomon Islands",
+   "iso3": "SLB",
+   "adm0": "SLB",
+   "fips": "BP",
+   "qid": "Q685"
+  },
+  "SLE": {
+   "name": "Sierra Leone",
+   "nameFr": "Sierra Leone",
+   "type": "Sovereign country",
+   "sovereign": "Sierra Leone",
+   "iso3": "SLE",
+   "adm0": "SLE",
+   "fips": "SL",
+   "qid": "Q1044"
+  },
+  "SLV": {
+   "name": "El Salvador",
+   "nameFr": "Salvador",
+   "type": "Sovereign country",
+   "sovereign": "El Salvador",
+   "iso3": "SLV",
+   "adm0": "SLV",
+   "fips": "ES",
+   "qid": "Q792"
+  },
+  "SMR": {
+   "name": "San Marino",
+   "nameFr": "Saint-Marin",
+   "type": "Sovereign country",
+   "sovereign": "San Marino",
+   "iso3": "SMR",
+   "adm0": "SMR",
+   "fips": "SM",
+   "qid": "Q238"
+  },
+  "SOL": {
+   "name": "Somaliland",
+   "nameFr": "Somaliland",
+   "type": "Sovereign country",
+   "sovereign": "Somaliland",
+   "iso3": null,
+   "adm0": "SOL",
+   "fips": null,
+   "qid": "Q34754",
+   "override": "No FIPS code of its own; GDELT counts it under Somalia (SO)?"
+  },
+  "SOM": {
+   "name": "Somalia",
+   "nameFr": "Somalie",
+   "type": "Sovereign country",
+   "sovereign": "Somalia",
+   "iso3": "SOM",
+   "adm0": "SOM",
+   "fips": "SO",
+   "qid": "Q1045"
+  },
+  "SPM": {
+   "name": "St. Pierre and Miquelon",
+   "nameFr": "Saint-Pierre-et-Miquelon",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "SPM",
+   "adm0": "SPM",
+   "fips": "SB",
+   "qid": "Q34617"
+  },
+  "SRB": {
+   "name": "Serbia",
+   "nameFr": "Serbie",
+   "type": "Sovereign country",
+   "sovereign": "Republic of Serbia",
+   "iso3": "SRB",
+   "adm0": "SRB",
+   "fips": "RI",
+   "qid": "Q403"
+  },
+  "SSD": {
+   "name": "S. Sudan",
+   "nameFr": "Soudan du Sud",
+   "type": "Sovereign country",
+   "sovereign": "South Sudan",
+   "iso3": "SSD",
+   "adm0": "SDS",
+   "fips": "OD",
+   "qid": "Q958",
+   "override": "FIPS 10-4 South Sudan; confirm against GDELT in M5"
+  },
+  "STP": {
+   "name": "São Tomé and Principe",
+   "nameFr": "Sao Tomé-et-Principe",
+   "type": "Sovereign country",
+   "sovereign": "São Tomé and Principe",
+   "iso3": "STP",
+   "adm0": "STP",
+   "fips": "TP",
+   "qid": "Q1039"
+  },
+  "SUR": {
+   "name": "Suriname",
+   "nameFr": "Suriname",
+   "type": "Sovereign country",
+   "sovereign": "Suriname",
+   "iso3": "SUR",
+   "adm0": "SUR",
+   "fips": "NS",
+   "qid": "Q730"
+  },
+  "SVK": {
+   "name": "Slovakia",
+   "nameFr": "Slovaquie",
+   "type": "Sovereign country",
+   "sovereign": "Slovakia",
+   "iso3": "SVK",
+   "adm0": "SVK",
+   "fips": "LO",
+   "qid": "Q214"
+  },
+  "SVN": {
+   "name": "Slovenia",
+   "nameFr": "Slovénie",
+   "type": "Sovereign country",
+   "sovereign": "Slovenia",
+   "iso3": "SVN",
+   "adm0": "SVN",
+   "fips": "SI",
+   "qid": "Q215"
+  },
+  "SWE": {
+   "name": "Sweden",
+   "nameFr": "Suède",
+   "type": "Sovereign country",
+   "sovereign": "Sweden",
+   "iso3": "SWE",
+   "adm0": "SWE",
+   "fips": "SW",
+   "qid": "Q34"
+  },
+  "SWZ": {
+   "name": "eSwatini",
+   "nameFr": "Eswatini",
+   "type": "Sovereign country",
+   "sovereign": "eSwatini",
+   "iso3": "SWZ",
+   "adm0": "SWZ",
+   "fips": "WZ",
+   "qid": "Q1050"
+  },
+  "SXM": {
+   "name": "Sint Maarten",
+   "nameFr": "Saint-Martin",
+   "type": "Country",
+   "sovereign": "Netherlands",
+   "iso3": "SXM",
+   "adm0": "SXM",
+   "fips": "NT",
+   "qid": "Q26273"
+  },
+  "SYC": {
+   "name": "Seychelles",
+   "nameFr": "Seychelles",
+   "type": "Sovereign country",
+   "sovereign": "Seychelles",
+   "iso3": "SYC",
+   "adm0": "SYC",
+   "fips": "SE",
+   "qid": "Q1042"
+  },
+  "SYR": {
+   "name": "Syria",
+   "nameFr": "Syrie",
+   "type": "Sovereign country",
+   "sovereign": "Syria",
+   "iso3": "SYR",
+   "adm0": "SYR",
+   "fips": "SY",
+   "qid": "Q858"
+  },
+  "TCA": {
+   "name": "Turks and Caicos Is.",
+   "nameFr": "îles Turques-et-Caïques",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "TCA",
+   "adm0": "TCA",
+   "fips": "TK",
+   "qid": "Q18221"
+  },
+  "TCD": {
+   "name": "Chad",
+   "nameFr": "Tchad",
+   "type": "Sovereign country",
+   "sovereign": "Chad",
+   "iso3": "TCD",
+   "adm0": "TCD",
+   "fips": "CD",
+   "qid": "Q657"
+  },
+  "TGO": {
+   "name": "Togo",
+   "nameFr": "Togo",
+   "type": "Sovereign country",
+   "sovereign": "Togo",
+   "iso3": "TGO",
+   "adm0": "TGO",
+   "fips": "TO",
+   "qid": "Q945"
+  },
+  "THA": {
+   "name": "Thailand",
+   "nameFr": "Thaïlande",
+   "type": "Sovereign country",
+   "sovereign": "Thailand",
+   "iso3": "THA",
+   "adm0": "THA",
+   "fips": "TH",
+   "qid": "Q869"
+  },
+  "TJK": {
+   "name": "Tajikistan",
+   "nameFr": "Tadjikistan",
+   "type": "Sovereign country",
+   "sovereign": "Tajikistan",
+   "iso3": "TJK",
+   "adm0": "TJK",
+   "fips": "TI",
+   "qid": "Q863"
+  },
+  "TKM": {
+   "name": "Turkmenistan",
+   "nameFr": "Turkménistan",
+   "type": "Sovereign country",
+   "sovereign": "Turkmenistan",
+   "iso3": "TKM",
+   "adm0": "TKM",
+   "fips": "TX",
+   "qid": "Q874"
+  },
+  "TLS": {
+   "name": "Timor-Leste",
+   "nameFr": "Timor oriental",
+   "type": "Sovereign country",
+   "sovereign": "East Timor",
+   "iso3": "TLS",
+   "adm0": "TLS",
+   "fips": "TT",
+   "qid": "Q574"
+  },
+  "TON": {
+   "name": "Tonga",
+   "nameFr": "Tonga",
+   "type": "Sovereign country",
+   "sovereign": "Tonga",
+   "iso3": "TON",
+   "adm0": "TON",
+   "fips": "TN",
+   "qid": "Q678"
+  },
+  "TTO": {
+   "name": "Trinidad and Tobago",
+   "nameFr": "Trinité-et-Tobago",
+   "type": "Sovereign country",
+   "sovereign": "Trinidad and Tobago",
+   "iso3": "TTO",
+   "adm0": "TTO",
+   "fips": "TD",
+   "qid": "Q754"
+  },
+  "TUN": {
+   "name": "Tunisia",
+   "nameFr": "Tunisie",
+   "type": "Sovereign country",
+   "sovereign": "Tunisia",
+   "iso3": "TUN",
+   "adm0": "TUN",
+   "fips": "TS",
+   "qid": "Q948"
+  },
+  "TUR": {
+   "name": "Turkey",
+   "nameFr": "Turquie",
+   "type": "Sovereign country",
+   "sovereign": "Turkey",
+   "iso3": "TUR",
+   "adm0": "TUR",
+   "fips": "TU",
+   "qid": "Q43"
+  },
+  "TUV": {
+   "name": "Tuvalu",
+   "nameFr": "Tuvalu",
+   "type": "Sovereign country",
+   "sovereign": "Tuvalu",
+   "iso3": "TUV",
+   "adm0": "TUV",
+   "fips": "TV",
+   "qid": "Q672"
+  },
+  "TWN": {
+   "name": "Taiwan",
+   "nameFr": "Taïwan",
+   "type": "Sovereign country",
+   "sovereign": "Taiwan",
+   "iso3": "TWN",
+   "adm0": "TWN",
+   "fips": "TW",
+   "qid": "Q865"
+  },
+  "TZA": {
+   "name": "Tanzania",
+   "nameFr": "Tanzanie",
+   "type": "Sovereign country",
+   "sovereign": "United Republic of Tanzania",
+   "iso3": "TZA",
+   "adm0": "TZA",
+   "fips": "TZ",
+   "qid": "Q924"
+  },
+  "UGA": {
+   "name": "Uganda",
+   "nameFr": "Ouganda",
+   "type": "Sovereign country",
+   "sovereign": "Uganda",
+   "iso3": "UGA",
+   "adm0": "UGA",
+   "fips": "UG",
+   "qid": "Q1036"
+  },
+  "UKR": {
+   "name": "Ukraine",
+   "nameFr": "Ukraine",
+   "type": "Sovereign country",
+   "sovereign": "Ukraine",
+   "iso3": "UKR",
+   "adm0": "UKR",
+   "fips": "UP",
+   "qid": "Q212"
+  },
+  "URY": {
+   "name": "Uruguay",
+   "nameFr": "Uruguay",
+   "type": "Sovereign country",
+   "sovereign": "Uruguay",
+   "iso3": "URY",
+   "adm0": "URY",
+   "fips": "UY",
+   "qid": "Q77"
+  },
+  "USA": {
+   "name": "United States of America",
+   "nameFr": "États-Unis",
+   "type": "Country",
+   "sovereign": "United States of America",
+   "iso3": "USA",
+   "adm0": "USA",
+   "fips": "US",
+   "qid": "Q30"
+  },
+  "UZB": {
+   "name": "Uzbekistan",
+   "nameFr": "Ouzbékistan",
+   "type": "Sovereign country",
+   "sovereign": "Uzbekistan",
+   "iso3": "UZB",
+   "adm0": "UZB",
+   "fips": "UZ",
+   "qid": "Q265"
+  },
+  "VAT": {
+   "name": "Vatican",
+   "nameFr": "Cité du Vatican",
+   "type": "Sovereign country",
+   "sovereign": "Vatican",
+   "iso3": "VAT",
+   "adm0": "VAT",
+   "fips": "VT",
+   "qid": "Q237"
+  },
+  "VCT": {
+   "name": "St. Vin. and Gren.",
+   "nameFr": "Saint-Vincent-et-les-Grenadines",
+   "type": "Sovereign country",
+   "sovereign": "Saint Vincent and the Grenadines",
+   "iso3": "VCT",
+   "adm0": "VCT",
+   "fips": "VC",
+   "qid": "Q757"
+  },
+  "VEN": {
+   "name": "Venezuela",
+   "nameFr": "Venezuela",
+   "type": "Sovereign country",
+   "sovereign": "Venezuela",
+   "iso3": "VEN",
+   "adm0": "VEN",
+   "fips": "VE",
+   "qid": "Q717"
+  },
+  "VGB": {
+   "name": "British Virgin Is.",
+   "nameFr": "îles Vierges britanniques",
+   "type": "Dependency",
+   "sovereign": "United Kingdom",
+   "iso3": "VGB",
+   "adm0": "VGB",
+   "fips": "VI",
+   "qid": "Q25305"
+  },
+  "VIR": {
+   "name": "U.S. Virgin Is.",
+   "nameFr": "îles Vierges des États-Unis",
+   "type": "Dependency",
+   "sovereign": "United States of America",
+   "iso3": "VIR",
+   "adm0": "VIR",
+   "fips": "VQ",
+   "qid": "Q11703"
+  },
+  "VNM": {
+   "name": "Vietnam",
+   "nameFr": "Viêt Nam",
+   "type": "Sovereign country",
+   "sovereign": "Vietnam",
+   "iso3": "VNM",
+   "adm0": "VNM",
+   "fips": "VM",
+   "qid": "Q881"
+  },
+  "VUT": {
+   "name": "Vanuatu",
+   "nameFr": "Vanuatu",
+   "type": "Sovereign country",
+   "sovereign": "Vanuatu",
+   "iso3": "VUT",
+   "adm0": "VUT",
+   "fips": "NH",
+   "qid": "Q686"
+  },
+  "WLF": {
+   "name": "Wallis and Futuna Is.",
+   "nameFr": "Wallis-et-Futuna",
+   "type": "Dependency",
+   "sovereign": "France",
+   "iso3": "WLF",
+   "adm0": "WLF",
+   "fips": "WF",
+   "qid": "Q35555"
+  },
+  "WSM": {
+   "name": "Samoa",
+   "nameFr": "Samoa",
+   "type": "Sovereign country",
+   "sovereign": "Samoa",
+   "iso3": "WSM",
+   "adm0": "WSM",
+   "fips": "WS",
+   "qid": "Q683"
+  },
+  "XKX": {
+   "name": "Kosovo",
+   "nameFr": "Kosovo",
+   "type": "Disputed",
+   "sovereign": "Kosovo",
+   "iso3": "XKX",
+   "adm0": "KOS",
+   "fips": "KV",
+   "qid": "Q1246",
+   "override": "World Bank / EU user-assigned code; ISO has none"
+  },
+  "YEM": {
+   "name": "Yemen",
+   "nameFr": "Yémen",
+   "type": "Sovereign country",
+   "sovereign": "Yemen",
+   "iso3": "YEM",
+   "adm0": "YEM",
+   "fips": "YM",
+   "qid": "Q805"
+  },
+  "ZAF": {
+   "name": "South Africa",
+   "nameFr": "Afrique du Sud",
+   "type": "Sovereign country",
+   "sovereign": "South Africa",
+   "iso3": "ZAF",
+   "adm0": "ZAF",
+   "fips": "SF",
+   "qid": "Q258"
+  },
+  "ZMB": {
+   "name": "Zambia",
+   "nameFr": "Zambie",
+   "type": "Sovereign country",
+   "sovereign": "Zambia",
+   "iso3": "ZMB",
+   "adm0": "ZMB",
+   "fips": "ZA",
+   "qid": "Q953"
+  },
+  "ZWE": {
+   "name": "Zimbabwe",
+   "nameFr": "Zimbabwe",
+   "type": "Sovereign country",
+   "sovereign": "Zimbabwe",
+   "iso3": "ZWE",
+   "adm0": "ZWE",
+   "fips": "ZI",
+   "qid": "Q954"
+  }
+ }
+}
